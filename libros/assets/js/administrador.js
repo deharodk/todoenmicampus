@@ -24,7 +24,7 @@
                         return false;
                     }
                     else {
-                        if (pass.val().trim() == "" || pass.val().length < 7) {
+                        if (pass.val().trim() == "" || pass.val().length < 8) {
                             bootbox.alert("El campo contraseña no puede ir vacío o ser de menos de 8 caracteres", function () {
                                 pass.focus();
                             });
@@ -57,7 +57,7 @@
             return false;
         }
 
-        if (pass.val().trim() == "" || pass.val().length < 7) {
+        if (pass.val().trim() == "" || pass.val().length < 8) {
             bootbox.alert("El campo contraseña no puede ir vacío o ser de menos de 8 caracteres", function () {
                 pass.focus();
             });
@@ -76,7 +76,7 @@
         var pass = $("#txtPass");
         var passConfirm = $("#txtPassConfirm");
 
-        if (pass.val().trim() == "" || pass.val().trim().length =< 7) {
+        if (pass.val().trim() == "" || pass.val().trim().length < 8) {
             bootbox.alert("El campo contraseña no puede ser vacío o de menos de 8 caracteres", function () {
                 pass.focus();
             });

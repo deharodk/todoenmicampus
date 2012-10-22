@@ -2,7 +2,8 @@
 
 Namespace libros.Areas.admin
     Public Class FormaPagoController
-        Inherits System.Web.Mvc.Controller
+        'Inherits System.Web.Mvc.Controller
+        Inherits BaseController
 
         Private db As New libros_db
 

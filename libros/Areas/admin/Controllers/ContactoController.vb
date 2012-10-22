@@ -3,7 +3,8 @@ Imports System.Security.Cryptography
 
 Namespace libros.Areas.admin
     Public Class ContactoController
-        Inherits System.Web.Mvc.Controller
+        'Inherits System.Web.Mvc.Controller
+        Inherits BaseController
 
         Private db As New libros_db
 

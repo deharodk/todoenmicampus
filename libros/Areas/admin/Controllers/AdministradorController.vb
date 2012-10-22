@@ -6,6 +6,7 @@ Imports System.Web.Script.Serialization
 Namespace libros.Areas.admin
     Public Class AdministradorController
         Inherits System.Web.Mvc.Controller
+        'Inherits BaseController
 
         Private db As New libros_db
 
@@ -13,6 +14,8 @@ Namespace libros.Areas.admin
         ' GET: /admin/Administrador/
 
         Function Index() As ActionResult
+            If isAdminLoggedIn() = False Then Return RedirectToAction("login")
+            If Not isAdminSuperAdmin() Then Return RedirectToAction("dashboard")
             Dim admin = db.Database.SqlQuery(Of Administrador)("exec spListAdmin")
             Return View(admin.ToList())
         End Function
@@ -21,6 +24,8 @@ Namespace libros.Areas.admin
         ' GET: /admin/Administrador/Details/5
 
         Function Details(Optional ByVal id As Integer = Nothing) As ActionResult
+            If isAdminLoggedIn() = False Then Return RedirectToAction("login")
+            If Not isAdminSuperAdmin() Then Return RedirectToAction("dashboard")
             Dim administrador As Administrador = db.Administrador.Find(id)
             If IsNothing(administrador) Then
                 Return HttpNotFound()
@@ -32,6 +37,8 @@ Namespace libros.Areas.admin
         ' GET: /admin/Administrador/Create
 
         Function Create() As ActionResult
+            If isAdminLoggedIn() = False Then Return RedirectToAction("login")
+            If Not isAdminSuperAdmin() Then Return RedirectToAction("dashboard")
             Return View()
         End Function
 
@@ -41,7 +48,6 @@ Namespace libros.Areas.admin
         <HttpGet()> _
         Function findByUserName() As String
             Dim model As Collection = New Collection
-
             Dim serializer As New JavaScriptSerializer()
             Try
                 Response.ContentType = "application/json"
@@ -86,6 +92,8 @@ Namespace libros.Areas.admin
         ' GET: /admin/Administrador/Edit/5
 
         Function Edit(Optional ByVal id As Integer = Nothing) As ActionResult
+            If isAdminLoggedIn() = False Then Return RedirectToAction("login")
+            If Not isAdminSuperAdmin() Then Return RedirectToAction("dashboard")
             Dim administrador As Administrador = db.Administrador.Find(id)
             If IsNothing(administrador) Then
                 Return HttpNotFound()
@@ -110,6 +118,8 @@ Namespace libros.Areas.admin
         ' GET: /admin/Administrador/Delete/5
 
         Function Delete(Optional ByVal id As Integer = Nothing) As ActionResult
+            If isAdminLoggedIn() = False Then Return RedirectToAction("login")
+            If Not isAdminSuperAdmin() Then Return RedirectToAction("dashboard")
             Dim administrador As Administrador = db.Administrador.Find(id)
             If IsNothing(administrador) Then
                 Return HttpNotFound()
@@ -132,6 +142,8 @@ Namespace libros.Areas.admin
         ' GET: /admin/Administrador/editPassword/5
 
         Function editPassword(Optional ByVal id As Integer = Nothing) As ActionResult
+            If isAdminLoggedIn() = False Then Return RedirectToAction("login")
+            If Not isAdminSuperAdmin() Then Return RedirectToAction("dashboard")
             Dim administrador As Administrador = db.Administrador.Find(id)
             If IsNothing(administrador) Then
                 Return HttpNotFound()
@@ -188,7 +200,7 @@ Namespace libros.Areas.admin
             Return View("login")
         End Function
         Function dashboard() As ActionResult
-
+            If Not isAdminLoggedIn() Then Return RedirectToAction("login")
             Return View()
         End Function
         <HttpPost()>
@@ -203,6 +215,22 @@ Namespace libros.Areas.admin
                 Response.Cookies.Add(aCookie)
             Next
         End Sub
+        Private Function isAdminLoggedIn() As Boolean
+            If Request.Cookies("campusUserCookie") Is Nothing Then
+                Return False
+            End If
+            Return True
+        End Function
+        Private Function isAdminSuperAdmin() As Boolean
+            Dim superPermisos As Integer
+            If Not Request.Cookies("campusUserCookie") Is Nothing Then
+                superPermisos = CBool(Request.Cookies("campusUserCookie")("superPermisos"))
+                If superPermisos = False Then
+                    Return False
+                End If
+            End If
+            Return True
+        End Function
         Protected Overrides Sub Dispose(ByVal disposing As Boolean)
             db.Dispose()
             MyBase.Dispose(disposing)
