@@ -151,16 +151,19 @@
   <ItemGroup>
     <Compile Include="Areas\admin\adminAreaRegistration.vb" />
     <Compile Include="Areas\admin\Controllers\AdministradorController.vb" />
+    <Compile Include="Areas\admin\Controllers\ContactoController.vb" />
     <Compile Include="Areas\admin\Controllers\FacultadController.vb" />
-    <Compile Include="Areas\admin\Controllers\TipoAnuncioController.vb" />
+    <Compile Include="Areas\admin\Controllers\FormaPagoController.vb" />
+    <Compile Include="base\BaseController.vb" />
     <Compile Include="Controllers\HomeController.vb" />
     <Compile Include="Global.asax.vb">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\Administrador.vb" />
+    <Compile Include="Models\Contacto.vb" />
     <Compile Include="Models\Facultad.vb" />
+    <Compile Include="Models\FormaPago.vb" />
     <Compile Include="Models\libros_db.vb" />
-    <Compile Include="Models\TipoAnuncio.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
   </ItemGroup>
   <ItemGroup>
@@ -175,7 +178,9 @@
     <Content Include="assets\js\bootstrap.min.js" />
     <Content Include="assets\js\bootswatch.js" />
     <Content Include="assets\js\config.js" />
+    <Content Include="assets\js\contacto.js" />
     <Content Include="assets\js\facultad.js" />
+    <Content Include="assets\js\general.js" />
     <Content Include="assets\js\less-1.3.0.min.js" />
     <Content Include="assets\js\login.js" />
     <Content Include="assets\js\subnav.js" />
@@ -191,6 +196,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="App_LocalResources\" />
     <Folder Include="Areas\admin\Models\" />
     <Folder Include="Areas\admin\Views\Home\" />
     <Folder Include="Views\Shared\" />
@@ -203,21 +209,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Home\Index.vbhtml" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Areas\admin\Views\TipoAnuncio\Index.vbhtml" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Areas\admin\Views\TipoAnuncio\Details.vbhtml" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Areas\admin\Views\TipoAnuncio\Create.vbhtml" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Areas\admin\Views\TipoAnuncio\Edit.vbhtml" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Areas\admin\Views\TipoAnuncio\Delete.vbhtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Areas\admin\Views\Shared\_Layout.vbhtml" />
@@ -266,6 +257,39 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Areas\admin\Views\Administrador\dashboard.vbhtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\admin\Views\FormaPago\Index.vbhtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\admin\Views\FormaPago\Details.vbhtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\admin\Views\FormaPago\Create.vbhtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\admin\Views\FormaPago\Edit.vbhtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\admin\Views\FormaPago\Delete.vbhtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\admin\Views\Contacto\Index.vbhtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\admin\Views\Contacto\Details.vbhtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\admin\Views\Contacto\Create.vbhtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\admin\Views\Contacto\Edit.vbhtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\admin\Views\Contacto\Delete.vbhtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\admin\Views\Contacto\Habilitar.vbhtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

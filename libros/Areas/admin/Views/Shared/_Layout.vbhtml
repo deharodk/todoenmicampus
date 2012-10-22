@@ -9,6 +9,7 @@
     @Scripts.Render("~/assets/js/bootswatch.js")
     @Scripts.Render("~/assets/js/subnav.js")
     @Scripts.Render("~/assets/js/less-1.3.0.min.js")
+    @Scripts.Render("~/assets/js/general.js")
 </head>
 <body>
     @Html.Partial("_menu")

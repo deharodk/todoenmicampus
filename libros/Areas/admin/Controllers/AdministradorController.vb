@@ -179,6 +179,7 @@ Namespace libros.Areas.admin
                 userCookie("nombre") = list(0).nombre.ToString()
                 userCookie("superPermisos") = list(0).superUsuario()
                 userCookie("estatus") = list(0).estatus
+                userCookie("conectado") = True
                 userCookie.Expires = DateTime.Now.AddHours(1.5)
                 HttpContext.Response.Cookies.Add(userCookie)
                 Return (RedirectToAction("dashboard"))
@@ -190,6 +191,18 @@ Namespace libros.Areas.admin
 
             Return View()
         End Function
+        <HttpPost()>
+        Public Sub logOut()
+            Dim aCookie As HttpCookie
+            Dim cookieName As String
+            Dim cookieTotal As Integer = Request.Cookies.Count - 1
+            For i As Integer = 0 To cookieTotal
+                cookieName = Request.Cookies(i).Name
+                aCookie = New HttpCookie(cookieName)
+                aCookie.Expires = DateTime.Now.AddDays(-1)
+                Response.Cookies.Add(aCookie)
+            Next
+        End Sub
         Protected Overrides Sub Dispose(ByVal disposing As Boolean)
             db.Dispose()
             MyBase.Dispose(disposing)
