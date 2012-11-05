@@ -1,0 +1,51 @@
+﻿.anclaLogin
+{
+    color: #FFFFFF;
+}
+
+.anuncioDiv
+{
+    /*margin: 0 auto;*/
+    float: right;
+    text-align: right;    
+    width: 500px;
+}
+
+.anuncioP
+{
+    font-size: 14.5px;    
+}
+
+.anuncioH4
+{
+    font-size: 21px;    
+}
+
+.anuncioTable
+{
+    
+    width: 70%;
+    margin: 0 auto; 
+}
+
+.dashboardP
+{
+    font-size: 18px;
+}
+
+
+.dashboardTable {
+ margin: 0 auto;
+ border-collapse: seperate;
+ border-spacing: 20px;
+}
+
+
+.dashboardTable td{
+    padding: 20px;
+    text-align: center;
+}
+
+.dashboardTable th{
+    font-size: 20px;
+}

@@ -2,7 +2,8 @@
 
 Namespace libros.Areas.admin
     Public Class TipoAnuncioController
-        Inherits System.Web.Mvc.Controller
+        'Inherits System.Web.Mvc.Controller
+        Inherits BaseController
 
         Private db As New libros_db
 
@@ -10,14 +11,14 @@ Namespace libros.Areas.admin
         ' GET: /admin/TipoAnuncio/
 
         Function Index() As ActionResult
-            Return View(db.TipoAnuncio.ToList())
+            Return View(db.TipoAnuncios.ToList())
         End Function
 
         '
         ' GET: /admin/TipoAnuncio/Details/5
 
         Function Details(Optional ByVal id As Integer = Nothing) As ActionResult
-            Dim tipoanuncio As TipoAnuncio = db.TipoAnuncio.Find(id)
+            Dim tipoanuncio As TipoAnuncio = db.TipoAnuncios.Find(id)
             If IsNothing(tipoanuncio) Then
                 Return HttpNotFound()
             End If
@@ -37,7 +38,7 @@ Namespace libros.Areas.admin
         <HttpPost()> _
         Function Create(ByVal tipoanuncio As TipoAnuncio) As ActionResult
             If ModelState.IsValid Then
-                db.TipoAnuncio.Add(tipoanuncio)
+                db.TipoAnuncios.Add(tipoanuncio)
                 db.SaveChanges()
                 Return RedirectToAction("Index")
             End If
@@ -49,7 +50,7 @@ Namespace libros.Areas.admin
         ' GET: /admin/TipoAnuncio/Edit/5
 
         Function Edit(Optional ByVal id As Integer = Nothing) As ActionResult
-            Dim tipoanuncio As TipoAnuncio = db.TipoAnuncio.Find(id)
+            Dim tipoanuncio As TipoAnuncio = db.TipoAnuncios.Find(id)
             If IsNothing(tipoanuncio) Then
                 Return HttpNotFound()
             End If
@@ -74,7 +75,7 @@ Namespace libros.Areas.admin
         ' GET: /admin/TipoAnuncio/Delete/5
 
         Function Delete(Optional ByVal id As Integer = Nothing) As ActionResult
-            Dim tipoanuncio As TipoAnuncio = db.TipoAnuncio.Find(id)
+            Dim tipoanuncio As TipoAnuncio = db.TipoAnuncios.Find(id)
             If IsNothing(tipoanuncio) Then
                 Return HttpNotFound()
             End If
@@ -87,8 +88,8 @@ Namespace libros.Areas.admin
         <HttpPost()> _
         <ActionName("Delete")> _
         Function DeleteConfirmed(ByVal id As Integer) As RedirectToRouteResult
-            Dim tipoanuncio As TipoAnuncio = db.TipoAnuncio.Find(id)
-            db.TipoAnuncio.Remove(tipoanuncio)
+            Dim tipoanuncio As TipoAnuncio = db.TipoAnuncios.Find(id)
+            db.TipoAnuncios.Remove(tipoanuncio)
             db.SaveChanges()
             Return RedirectToAction("Index")
         End Function

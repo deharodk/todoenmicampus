@@ -10,3 +10,17 @@
                 }
     });
 }
+
+
+function logoutUsuario() {
+    $.ajax({
+        type: "POST",
+        contentType: "application/x-www-form-urlencoded;charset=ISO-8859-1",
+        url: "/usuario/logOut",
+        data: "",
+        success:
+                function () {
+                    location.href = "/Home/Index/";
+                }
+    });
+}

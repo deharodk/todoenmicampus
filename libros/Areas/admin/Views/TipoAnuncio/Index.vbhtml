@@ -1,38 +1,45 @@
 ﻿@ModelType IEnumerable(Of libros.TipoAnuncio)
 
 @Code
-    ViewData("Title") = "Index"
+    ViewData("Title") = "Tipo de anuncios"
+    Layout = "~/Areas/admin/Views/Shared/_Layout.vbhtml"
 End Code
 
-<h2>Index</h2>
+<h1>Tipo de anuncios</h1>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Crear nuevo", "Create")
 </p>
-<table>
+<table class = "table table-bordered table-striped">
     <tr>
         <th>
-            @Html.DisplayNameFor(Function(model) model.tipoAnuncio)
+            @Html.DisplayNameFor(Function(model) model.nombre)
         </th>
         <th>
             @Html.DisplayNameFor(Function(model) model.estatus)
         </th>
-        <th></th>
+        <th>
+            Acciones
+        </th>
     </tr>
 
 @For Each item In Model
     Dim currentItem = item
     @<tr>
         <td>
-            @Html.DisplayFor(Function(modelItem) currentItem.tipoAnuncio)
+            @Html.DisplayFor(Function(modelItem) currentItem.nombre)
         </td>
         <td>
-            @Html.DisplayFor(Function(modelItem) currentItem.estatus)
+           @If currentItem.estatus = True Then
+                   @<center><img src = "../../../../assets/images/activo.png" alt = "Activo"/></center>
+           Else
+                    @<center><img src = "../../../../assets/images/inactivo.png" alt = "Inactivo"/></center>
+           End If
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", New With {.id = currentItem.idTipoAnuncio}) |
-            @Html.ActionLink("Details", "Details", New With {.id = currentItem.idTipoAnuncio}) |
-            @Html.ActionLink("Delete", "Delete", New With {.id = currentItem.idTipoAnuncio})
+            @Html.ActionLink("Editar", "Edit", New With {.id = currentItem.idTipoAnuncio}) |
+            @Html.ActionLink("Detalles", "Details", New With {.id = currentItem.idTipoAnuncio}) |
+            @Html.ActionLink("Eliminar", "Delete", New With {.id = currentItem.idTipoAnuncio})
         </td>
     </tr>
 Next

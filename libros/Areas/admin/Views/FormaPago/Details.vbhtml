@@ -5,27 +5,31 @@
     Layout = "~/Areas/admin/Views/Shared/_Layout.vbhtml"
 End Code
 
-<h2>Details</h2>
+<h1>Detalles</h1>
 
 <fieldset>
-    <legend>FormaPago</legend>
+    <legend>Forma de pago</legend>
 
-    <div class="display-label">
-        @Html.DisplayNameFor(Function(model) model.formaPago)
-    </div>
-    <div class="display-field">
-        @Html.DisplayFor(Function(model) model.formaPago)
-    </div>
+    <div class="control-group">
+			@Html.LabelFor(Function(model) model.nombre, New With {.class = "control-label"})
+				<div class="controls">
+					 @Html.TextBoxFor(Function(model) model.nombre, New With {.class = "input-xlarge", .readonly = "readonly"})
+					<span class="help-inline"></span>
+				<p class="help-block"></p>
+			    </div>
+	</div>
 
-    <div class="display-label">
-        @Html.DisplayNameFor(Function(model) model.estatus)
-    </div>
-    <div class="display-field">
-        @Html.DisplayFor(Function(model) model.estatus)
-    </div>
+       <div class="control-group">
+			@Html.LabelFor(Function(model) model.estatus, New With {.class = "control-label"})
+				<div class="controls">
+					 @Html.DisplayFor(Function(model) model.estatus)
+					<span class="help-inline"></span>
+				<p class="help-block"></p>
+			    </div>
+	</div>
 </fieldset>
 <p>
 
-    @Html.ActionLink("Edit", "Edit", New With {.id = Model.idFormaPago}) |
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Editar", "Edit", New With {.id = Model.idFormaPago}) |
+    @Html.ActionLink("Volver a la lista", "Index")
 </p>

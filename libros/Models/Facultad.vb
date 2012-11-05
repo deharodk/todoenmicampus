@@ -4,7 +4,6 @@ Imports System.Data.Entity.ModelConfiguration.Conventions
 Imports System.ComponentModel.DataAnnotations
 Imports System.Data.Entity.Infrastructure
 Imports System.ComponentModel
-
 Public Class Facultad
     <Key()>
     Public Property idFacultad() As Integer

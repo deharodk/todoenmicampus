@@ -25,7 +25,7 @@ End code
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </a>
-          <a class="brand" href="/admin/administrador/dashboard">Admin</a>
+          <a class="brand" href="/admin/administrador/dashboard">Admin área</a>
           <div class="btn-group pull-right">
           @If conectado = True Then
             @<a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
@@ -44,10 +44,11 @@ End code
             @If conectado = True Then
             @<ul class="nav">
               <li><a href="/admin/contacto/index">Usuarios</a></li>
-              <li><a href="#">Anuncios</a></li>
+              <li><a href="/admin/anuncio/index">Anuncios</a></li>
               @If superPermisos = True Then
                   @<li><a href="/admin/facultad/index">Facultades</a></li>
                   @<li><a href="/admin/tipoanuncio/index">Tipo anuncios</a></li>
+                  @<li><a href = "/admin/formapago/index">Formas de pago</a></li>
                   @<li><a href="/admin/administrador/index">Administradores</a></li>
                 End If
             </ul>

@@ -6,7 +6,8 @@
 End Code
 
 <h1>Usuarios</h1>
-<table class = "table table-bordered table-striped">
+<table class = "table table-bordered table-striped" id = "tblUsuarios">
+<thead>
     <tr>
         <th>
             @Html.DisplayNameFor(Function(model) model.nombre)
@@ -24,6 +25,8 @@ End Code
             Acciones
         </th>
     </tr>
+</thead>
+<tbody>
 @For Each item In Model
     Dim currentItem = item
     @<tr>
@@ -54,4 +57,12 @@ End Code
         </td>
     </tr>
 Next
+   </tbody>
 </table>
+
+<br />
+<br />
+
+@Section Scripts
+    @Scripts.Render("~/assets/js/contacto.js")
+End Section

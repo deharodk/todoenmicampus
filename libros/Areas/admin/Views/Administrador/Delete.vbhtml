@@ -5,7 +5,7 @@
     Layout = "~/Areas/admin/Views/Shared/_Layout.vbhtml"
 End Code
 
-<h1>Delete</h1>
+<h1>Eliminar</h1>
 <h3>¿Estás seguro de que deseas borrar este administrador?</h3>
 
 <fieldset>

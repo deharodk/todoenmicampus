@@ -2,31 +2,35 @@
 
 @Code
     ViewData("Title") = "Delete"
+    Layout = "~/Areas/admin/Views/Shared/_Layout.vbhtml"
 End Code
 
-<h2>Delete</h2>
+<h1>Eliminar</h1>
 
-<h3>Are you sure you want to delete this?</h3>
+<h3>¿Estás seguro de que deseas eliminar este tipo de anuncio?</h3>
+
 <fieldset>
-    <legend>TipoAnuncio</legend>
+    <legend>Tipo de anuncio</legend>
 
-    <div class="display-label">
-        @Html.DisplayNameFor(Function(model) model.tipoAnuncio)
-    </div>
-    <div class="display-field">
-        @Html.DisplayFor(Function(model) model.tipoAnuncio)
+     <div class="control-group">
+        @Html.LabelFor(Function(model) model.nombre, New With {.class = "control-label"})
+        <div class="controls">
+            @Html.TextBoxFor(Function(model) model.nombre, New With {.class = "input-xlarge", .readonly = "readonly"})
+        </div>
     </div>
 
-    <div class="display-label">
-        @Html.DisplayNameFor(Function(model) model.estatus)
+
+     <div class="control-group">
+        @Html.LabelFor(Function(model) model.estatus, New With {.class = "control-label"})
+        <div class="controls">
+            @Html.DisplayFor(Function(model) model.estatus, New With {.class = "input-xlarge", .readonly = "readonly"})
+        </div>
     </div>
-    <div class="display-field">
-        @Html.DisplayFor(Function(model) model.estatus)
-    </div>
+
 </fieldset>
 @Using Html.BeginForm()
     @<p>
-        <input type="submit" value="Delete" /> |
-        @Html.ActionLink("Back to List", "Index")
+        <input type="submit" class="btn btn-warning" value="Borrar" /> |
+        @Html.ActionLink("Volver a la lista", "Index")
     </p>
 End Using

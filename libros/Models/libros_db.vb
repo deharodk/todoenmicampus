@@ -14,5 +14,7 @@ Public Class libros_db
     Public Property Administrador As DbSet(Of Administrador)
     Public Property FormaPago As DbSet(Of FormaPago)
     Public Property Contactoes As DbSet(Of Contacto)
+    Public Property TipoAnuncios As DbSet(Of TipoAnuncio)
+    Public Property Anuncios As DbSet(Of Anuncio)
 End Class
 

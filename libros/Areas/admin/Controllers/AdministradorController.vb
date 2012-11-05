@@ -201,6 +201,65 @@ Namespace libros.Areas.admin
         End Function
         Function dashboard() As ActionResult
             If Not isAdminLoggedIn() Then Return RedirectToAction("login")
+            'Anuncios
+            Dim totalAnuncios As Integer
+            Dim totalAnunciosActivos As Integer
+            Dim totalAnunciosInactivos As Integer
+            Dim totalAnunciosHoy As Integer
+            Dim totalAnunciosMes As Integer
+
+            totalAnuncios = db.Anuncios.Count()
+            totalAnunciosActivos = db.Anuncios.Count(Function(a) a.estatus = True)
+            totalAnunciosInactivos = db.Anuncios.Count(Function(a) a.estatus = False)
+            totalAnunciosHoy = db.Anuncios.Count(Function(a) a.fechaCreacion.Month = Now.Month And a.fechaCreacion.Day = Now.Day And a.fechaCreacion.Year = Now.Year)
+            totalAnunciosMes = db.Anuncios.Count(Function(a) a.fechaCreacion.Month = Now.Month)
+
+            'Usuarios
+            Dim totalUsuarios As Integer
+            Dim totalUsuariosActivos As Integer
+            Dim totalUsuariosInactivos As Integer
+  
+            totalUsuarios = db.Contactoes.Count()
+            totalUsuariosActivos = db.Contactoes.Count(Function(a) a.estatus = True)
+            totalUsuariosInactivos = db.Contactoes.Count(Function(a) a.estatus = False)
+
+            Dim superPermisos As Boolean = False
+            Try
+                superPermisos = CBool(Request.Cookies("campusUserCookie")("superPermisos"))
+            Catch ex As Exception
+
+            End Try
+
+            'Administradores
+            Dim totalAdministradores As Integer
+            Dim totalAdministradoresActivos As Integer
+            Dim totalAdministradoresInactivos As Integer
+
+            totalAdministradores = db.Administrador.Count()
+            totalAdministradoresActivos = db.Administrador.Count(Function(a) a.estatus = True)
+            totalAdministradoresInactivos = db.Administrador.Count(Function(a) a.estatus = False)
+
+            'VIEW BAG
+
+            'Anuncios
+            ViewBag.totalAnuncios = totalAnuncios
+            ViewBag.totalAnunciosActivos = totalAnunciosActivos
+            ViewBag.totalAnunciosInactivos = totalAnunciosInactivos
+            ViewBag.totalAnunciosHoy = totalAnunciosHoy
+            ViewBag.totalAnunciosMes = totalAnunciosMes
+
+            'Usuarios
+            ViewBag.totalUsuarios = totalUsuarios
+            ViewBag.totalUsuariosActivos = totalUsuariosActivos
+            ViewBag.totalUsuariosInactivos = totalUsuariosInactivos
+
+            'Administradores
+            ViewBag.totalAdministradores = totalAdministradores
+            ViewBag.totalAdministradoresActivos = totalAdministradoresActivos
+            ViewBag.totalAdministradoresInactivos = totalAdministradoresInactivos
+
+            ViewBag.superPermisos = superPermisos
+
             Return View()
         End Function
         <HttpPost()>

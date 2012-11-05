@@ -8,8 +8,8 @@ Public Class FormaPago
     <Key()>
     Public Property idFormaPago As Integer
     <Required()>
-    <DisplayName("Forma Pago")>
-    Public Property formaPago As String
+    <DisplayName("Forma pago")>
+    Public Property nombre As String
     <Required()>
     <DisplayName("Estatus")>
     Public Property estatus As Boolean
