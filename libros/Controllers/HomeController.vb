@@ -9,7 +9,7 @@ Namespace libros
         ' GET: /Home
 
         Function Index() As ActionResult
-            Dim anuncios = db.Anuncios.Include(Function(a) a.Contacto).Include(Function(a) a.TipoAnuncio).Include(Function(a) a.FormaPago).Where(Function(a) a.estatus = True).OrderBy(Function(a) a.fechaCreacion).Take(100)
+            Dim anuncios = db.Anuncios.Include(Function(a) a.Contacto).Include(Function(a) a.TipoAnuncio).Include(Function(a) a.FormaPago).Where(Function(a) a.estatus = True).OrderBy(Function(a) a.fechaCreacion).Take(100).OrderByDescending(Function(a) a.idAnuncio)
             Return View(anuncios.ToList())
         End Function
 
@@ -18,6 +18,26 @@ Namespace libros
         End Function
 
         Function Borrado() As ActionResult
+            Return View()
+        End Function
+
+        Function PasswordRecuperado() As ActionResult
+            Return View()
+        End Function
+
+        Function EmailRecuperacionEnviado() As ActionResult
+            Return View()
+        End Function
+
+        Function CorreoRecuperacionEnviado() As ActionResult
+            Return View()
+        End Function
+
+        Function HasVuelto() As ActionResult
+            Return View()
+        End Function
+
+        Function AvisoDePrivacidad() As ActionResult
             Return View()
         End Function
     End Class

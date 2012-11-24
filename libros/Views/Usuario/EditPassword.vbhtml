@@ -69,14 +69,14 @@ End Code
         <div class="control-group">
             @Html.Label("Actual password", New With {.class = "control-label"})
 				<div class="controls">
-					  @Html.Password("txtActualPassword", "", New With {.class = "input-xlarge", .id = "txtPass"})
+					  @Html.Password("txtActualPassword", "", New With {.class = "input-xlarge", .id = "txtPass", .maxlength = 255})
 			    </div>
 		</div>
 
         <div class="control-group">
             @Html.Label("Nueva Contraseña", New With {.class = "control-label"})
 				<div class="controls">
-					  @Html.PasswordFor(Function(model) model.pass, New With {.class = "input-xlarge", .id = "txtPassNew"})
+					  @Html.PasswordFor(Function(model) model.pass, New With {.class = "input-xlarge", .id = "txtPassNew", .maxlength = 255})
 					<span class="help-inline">  @Html.ValidationMessageFor(Function(model) model.pass) </span>
 				<p class="help-block"></p>
 			    </div>
@@ -85,7 +85,7 @@ End Code
          <div class="control-group">
             @Html.Label("Confirmar nueva contraseña", New With {.class = "control-label"})
 				<div class="controls">
-					  @Html.Password("txtPasswordConfirm", "",New With {.class = "input-xlarge", .id = "txtPassNewConfirm"})
+					  @Html.Password("txtPasswordConfirm", "",New With {.class = "input-xlarge", .id = "txtPassNewConfirm", .maxlength = 255})
 			    </div>
 		</div>
 

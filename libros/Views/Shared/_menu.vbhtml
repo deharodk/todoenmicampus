@@ -24,7 +24,7 @@ End code
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </a>
-          <a class="brand" href="/Home/">Todo en mi campus</a>
+          <a class="brand" href="/Home/">Inicio</a>
           <div class="btn-group pull-right">
           @If conectado = True Then
             @<a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
@@ -53,21 +53,30 @@ End code
                   <i class="icon-play-circle"></i> iniciar sesión
                   </a>
               </li>
+
               <li>
                 <a href="/Usuario/Create">
                 <i class="icon-plus"></i> registrarme
                 </a>
               </li>
+
+            @*  <li>
+                <a href="/Usuario/QuieroVolver">
+                <i class="icon-refresh"></i> recuperar cuenta
+                </a>
+              </li>*@
+
+
             </ul>
           End If   
           </div>
           <div class="nav-collapse"> 
             <ul class="nav">
               <li><a href="/Anuncios/Conocimiento">Conocimiento</a></li>
-              <li><a href="/Anuncios/LibrosMaterial">Libros / Material académico</a></li>
+              <li><a href="/Anuncios/LibrosMaterial">Libros/Material académico</a></li>
               <li><a href = "/Anuncios/Cuartos">Roomies</a></li>
               <li><a href="/Anuncios/Create"><i class="icon-arrow-right"></i>¡Publicar anuncio!</a></li>
-              <li><a href = "/Home/QuienesSomos">¿Quienes somos?</a></li>
+              
             </ul>
           </div>
         </div>

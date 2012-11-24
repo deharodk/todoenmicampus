@@ -185,12 +185,16 @@
     <Content Include="assets\images\escheresque.png" />
     <Content Include="assets\images\fabric_plaid.png" />
     <Content Include="assets\images\inactivo.png" />
+    <Content Include="assets\images\LargeHappyFace.png" />
     <Content Include="assets\images\lined_paper.png" />
     <Content Include="assets\images\low_contrast_linen.png" />
     <Content Include="assets\images\ravenna.png" />
     <Content Include="assets\images\ravenna_2X.png" />
     <Content Include="assets\images\sad-face.png" />
+    <Content Include="assets\images\sentEmail.png" />
+    <Content Include="assets\images\smileFace.png" />
     <Content Include="assets\images\welldone.jpeg" />
+    <Content Include="assets\images\welldone.png" />
     <Content Include="assets\images\white_brick_wall.png" />
     <Content Include="assets\images\white_brick_wall_2X.png" />
     <Content Include="assets\img\glyphicons-halflings-white.png" />
@@ -601,6 +605,7 @@
     <Content Include="assets\js\fPassword.js" />
     <Content Include="assets\js\home.js" />
     <Content Include="assets\js\jquery.dataTables.js" />
+    <Content Include="assets\js\quieroVolver.js" />
     <Content Include="assets\js\tipoanuncio.js" />
     <Content Include="assets\js\administrador.js" />
     <Content Include="assets\js\bootbox.js" />
@@ -822,6 +827,24 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Home\Borrado.vbhtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Usuario\ProcesoRecuperacion.vbhtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Home\PasswordRecuperado.vbhtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Home\EmailRecuperacionEnviado.vbhtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Usuario\QuieroVolver.vbhtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Home\HasVuelto.vbhtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Home\AvisoDePrivacidad.vbhtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

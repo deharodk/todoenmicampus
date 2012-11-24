@@ -1,5 +1,5 @@
 ﻿@Code
-    ViewData("Title") = "dashboard"
+    ViewData("Title") = "Tablero de indicadores"
     Layout = "~/Areas/admin/Views/Shared/_Layout.vbhtml"
 End Code
 

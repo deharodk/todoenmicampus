@@ -26,17 +26,17 @@ End Code
 
 
     <h4><b>Teléfono móvil</b></h4>
-    <p>@Model.numeroMovil  </p>
+    <p>@IIf(Model.numeroMovil = Nothing, "No proporciona", Model.numeroMovil)</p>
 
 
 
     <h4><b>Cuenta de twitter</b></h4>
-    <p>@Model.cuentaTwitter</p>
+    <p>@IIf(Model.cuentaTwitter = Nothing, "No proporciona", Model.cuentaTwitter)</p>
 
   
 
     <h4><b>Cuenta de facebook</b></h4>
-    <p>@Model.cuentaFB</p>
+    <p>@IIf(Model.cuentaFB = Nothing, "No proporciona", Model.cuentaFB)</p>
 
  
 

@@ -14,5 +14,13 @@ Public Class RouteConfig
             url:="{controller}/{action}/{id}", _
             defaults:=New With {.controller = "Home", .action = "Index", .id = UrlParameter.Optional} _
         )
+
+
+        'routes.MapRoute( _
+        '         "passRecoverChange",
+        '         "{controller}/{action}/{id}/{key}",
+        '         New With {.controller = "Usuario", .action = "assRecoverChange", .id = UrlParameter.Optional, .key = UrlParameter.Optional}
+        '         )
+
     End Sub
 End Class

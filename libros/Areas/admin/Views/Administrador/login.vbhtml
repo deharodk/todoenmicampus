@@ -1,5 +1,5 @@
 ﻿@Code
-    ViewData("Title") = "login"
+    ViewData("Title") = "Iniciar sesión - todo en mi campus"
     Layout = "~/Areas/admin/Views/Shared/_Layout.vbhtml"
 End Code
 
@@ -12,14 +12,14 @@ End Code
         <div class="control-group">
             @Html.Label("User name", New With {.class = "control-label"})
             <div class="controls">
-                @Html.TextBox("txtUser", Nothing, New With {.class = "input-xlarge", .id = "txtUser"})
+                @Html.TextBox("txtUser", Nothing, New With {.class = "input-xlarge", .id = "txtUser", .maxlength = 255})
             </div>
         </div>
 
         <div class="control-group">
             @Html.Label("Password", New With {.class = "control-label"})
             <div class="controls">
-                @Html.Password("txtPass", Nothing, New With {.class = "input-xlarge", .id = "txtPass"})
+                @Html.Password("txtPass", Nothing, New With {.class = "input-xlarge", .id = "txtPass", .maxlength = 255})
             </div>
         </div>
 

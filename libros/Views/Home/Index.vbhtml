@@ -5,7 +5,7 @@
     Layout = "~/Views/Shared/_Layout.vbhtml"
 End Code
 
-<h1>Úlitmos anuncios publicados</h1>
+<h1>Últimos anuncios publicados</h1>
 
 
 <table class = "table table-bordered table-striped dataTable anuncioTable" id = "tblAnuncios">
@@ -24,7 +24,7 @@ End Code
             <div class = "anuncioDiv">
                 <h4 class = "anuncioH4">@currentItem.titulo</h4>
                 <p class = "anuncioP">
-                    <b>Anunciante:</b> <a href = "/Usuario/Details/@currentItem.idContacto">@currentItem.Contacto.nombre</a>
+                    <b>Anunciante:</b> <a target = "_blank" href = "/Usuario/Details/@currentItem.idContacto">@currentItem.Contacto.nombre</a>
                     <br />
                     <b>Tipo anuncio:</b>  <a href = "/Anuncios/Categoria/@currentItem.idTipoAnuncio">@currentItem.TipoAnuncio.nombre</a>
                     <br />

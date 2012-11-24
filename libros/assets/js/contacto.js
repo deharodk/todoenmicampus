@@ -88,6 +88,7 @@
         var fb = $("#txtFB");
         var idFacultad = $("#idFacultad");
         var mailRegEx = /^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/;
+        var chk = $("#chkAcepto");
 
 
         if (!mailRegEx.test(username.val().trim()) || username.val().trim() == "") {
@@ -134,6 +135,13 @@
                             return false;
                         }
 
+                        if (!chk.is(':checked')) {
+                            bootbox.alert("Por favor, debes de aceptar los terminos y condiciones", function () {
+                                chk.focus();
+                            });
+                            return false;
+                        }
+
                         $("#frmCrearCuenta").submit();
                     }
                 }
@@ -162,5 +170,9 @@
         }
 
         return true;
+    });
+
+    $("#aTerminos").click(function () {
+        bootbox.modal('Para hacer uso de los servicios ofrecidos por todo en mi campus a través del Sitio Web, usted puede crear una cuenta (en lo sucesivo la “Cuenta”). Se recomienda que la información relativa a la Cuenta no sea revelada a ningún tercero, ya que corresponde a Usted la responsabilidad de preservar en todo momento la seguridad de la misma, debiendo notificar a todo en mi campus inmediatamente sobre cualquier problema relacionado con la misma. <br /> <br /> Usted podrá en todo momento verificar en el Sitio Web el estatus de su Cuenta y confirmar que los datos que haya proporcionado a todo en mi campus continúen siendo los correctos en todo momento para que todo en mi campus esté en condiciones de brindarle un servicio óptimo. Para conseguir lo anterior, deberá proporcionar a todo en mi campus la información libre de errores y completa cuando cree su Cuenta, el tratamiento que todo en mi campus dará a esta información se encuentra regulado por los términos de privacidad que todo en mi campus pone a su disposición en el Sitio Web bajo la leyenda “Aviso de Privacidad”.', "Términos y condiciones");
     });
 });

@@ -15,7 +15,7 @@ End Code
         <div class="control-group">
             @Html.LabelFor(Function(model) model.email, New With {.class = "control-label"})
             <div class="controls">
-                @Html.TextBoxFor(Function(model) model.email, New With {.class = "input-xlarge", .id = "txtEmail", .placeholder = "Nombre de usuario"})
+                @Html.TextBoxFor(Function(model) model.email, New With {.class = "input-xlarge", .id = "txtEmail", .placeholder = "Nombre de usuario", .maxlength = 255})
                 @Html.ValidationMessageFor(Function(model) model.email)
             </div>
         </div>
@@ -24,7 +24,7 @@ End Code
          <div class="control-group">
             @Html.LabelFor(Function(model) model.nombre, New With {.class = "control-label"})
             <div class="controls">
-                @Html.TextBoxFor(Function(model) model.nombre, New With {.class = "input-xlarge", .id = "txtNombre", .placeholder = "Tú nombre"})
+                @Html.TextBoxFor(Function(model) model.nombre, New With {.class = "input-xlarge", .id = "txtNombre", .placeholder = "Tú nombre", .maxlength = 255})
                 @Html.ValidationMessageFor(Function(model) model.nombre)
             </div>
         </div>
@@ -32,7 +32,7 @@ End Code
         <div class="control-group">
             @Html.LabelFor(Function(model) model.numeroMovil, New With {.class = "control-label"})
             <div class="controls">
-                @Html.TextBoxFor(Function(model) model.numeroMovil, New With {.class = "input-xlarge", .id = "txtNumeroMovil", .placeholder = "Número móvil (opcional)"})
+                @Html.TextBoxFor(Function(model) model.numeroMovil, New With {.class = "input-xlarge", .id = "txtNumeroMovil", .placeholder = "Número móvil (opcional)", .maxlength = 20})
                 @Html.ValidationMessageFor(Function(model) model.numeroMovil)
             </div>
         </div>
@@ -41,7 +41,7 @@ End Code
         <div class="control-group">
             @Html.LabelFor(Function(model) model.cuentaTwitter, New With {.class = "control-label"})
             <div class="controls">
-                @Html.TextBoxFor(Function(model) model.cuentaTwitter, New With {.class = "input-xlarge", .id = "txtCuentaTwitter", .placeholder = "Tú cuenta de twitter (opcional)"})
+                @Html.TextBoxFor(Function(model) model.cuentaTwitter, New With {.class = "input-xlarge", .id = "txtCuentaTwitter", .placeholder = "Tú cuenta de twitter (opcional)", .maxlength = 255})
                 @Html.ValidationMessageFor(Function(model) model.cuentaTwitter)
             </div>
         </div>
@@ -49,7 +49,7 @@ End Code
         <div class="control-group">
             @Html.LabelFor(Function(model) model.cuentaFB, New With {.class = "control-label"})
             <div class="controls">
-                @Html.TextBoxFor(Function(model) model.cuentaFB, New With {.class = "input-xlarge", .id = "txtFB", .placeholder = "Tú cuenta de facebook (opcional)"})
+                @Html.TextBoxFor(Function(model) model.cuentaFB, New With {.class = "input-xlarge", .id = "txtFB", .placeholder = "Tú cuenta de facebook (opcional)", .maxlength = 255})
                 @Html.ValidationMessageFor(Function(model) model.cuentaFB)
             </div>
         </div>
@@ -65,8 +65,16 @@ End Code
         <div class="control-group">
             @Html.LabelFor(Function(model) model.pass, New With {.class = "control-label"})
             <div class="controls">
-                @Html.PasswordFor(Function(model) model.pass, New With {.class = "input-xlarge", .id = "txtPass", .placeholder = "Tú contraseña (mínimo 8 caracteres)"})
+                @Html.PasswordFor(Function(model) model.pass, New With {.class = "input-xlarge", .id = "txtPass", .placeholder = "Tú contraseña (mínimo 8 caracteres)", .maxlength = 255})
                 @Html.ValidationMessageFor(Function(model) model.pass)
+            </div>
+        </div>
+
+        <div class="control-group">
+            @Html.Label("", New With {.class = "control-label"})
+            <div class="controls">
+                @Html.CheckBox("chkAcepto", False, New With {.class = "input-xlarge", .id = "chkAcepto"})
+                He leido y acepto los <a href = "javascript:void(0);" id = "aTerminos">términos y condiciones</a>
             </div>
         </div>
 

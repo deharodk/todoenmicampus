@@ -27,7 +27,7 @@ End Code
         <div class="control-group">
             @Html.LabelFor(Function(model) model.titulo, New With {.class = "control-label"})
             <div class="controls">
-                @Html.TextBoxFor(Function(model) model.titulo, New With {.class = "input-xlarge", .id = "txtTitulo", .placeholder = "Título"})
+                @Html.TextBoxFor(Function(model) model.titulo, New With {.class = "input-xlarge", .id = "txtTitulo", .placeholder = "Título", .maxlength = 50})
                 @Html.ValidationMessageFor(Function(model) model.titulo)
             </div>
         </div>
@@ -48,10 +48,10 @@ End Code
             @Html.LabelFor(Function(model) model.precioTotal, New With {.class = "control-label"})
             <div class="controls">
                 @If Model.idFormaPago = 1 Then
-                    @Html.TextBoxFor(Function(model) model.precioTotal, New With {.class = "input-xlarge", .id = "txtPrecioTotal", .disabled = True, .placeholder = "Precio que propones"})
+                    @Html.TextBoxFor(Function(model) model.precioTotal, New With {.class = "input-xlarge", .id = "txtPrecioTotal", .disabled = True, .placeholder = "Precio que propones", .maxlength = 10})
                     @Html.ValidationMessageFor(Function(model) model.precioTotal)
                 Else
-                    @Html.TextBoxFor(Function(model) model.precioTotal, New With {.class = "input-xlarge", .id = "txtPrecioTotal", .placeholder = "Precio que propones"})
+                    @Html.TextBoxFor(Function(model) model.precioTotal, New With {.class = "input-xlarge", .id = "txtPrecioTotal", .placeholder = "Precio que propones", .maxlength = 10})
                     @Html.ValidationMessageFor(Function(model) model.precioTotal)
                 End If
             </div>

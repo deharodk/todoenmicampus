@@ -21,6 +21,17 @@ End Code
         </div>
       
     </fieldset>
+    
+    If ViewBag.userNotExists = True Then
+        @<div class="alert alert-info" id ="lblError">
+            <a class="close" id ="aClose">×</a>
+            <h4 class="alert-heading">Alerta</h4>
+            <p>
+                El usuario que proporcionas no existe o la cuenta le ha sido deshabilitada.
+            </p>
+          </div>
+    End If
+   
 End Using
 
 @Section Scripts

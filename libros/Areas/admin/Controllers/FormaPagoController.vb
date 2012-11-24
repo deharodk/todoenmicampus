@@ -11,6 +11,7 @@ Namespace libros.Areas.admin
         ' GET: /admin/FormaPago/
 
         Function Index() As ActionResult
+            If Not isAdminSuperAdmin() Then Return RedirectToAction("dashboard", "Administrador")
             Return View(db.FormaPago.ToList())
         End Function
 
@@ -18,6 +19,7 @@ Namespace libros.Areas.admin
         ' GET: /admin/FormaPago/Details/5
 
         Function Details(Optional ByVal id As Integer = Nothing) As ActionResult
+            If Not isAdminSuperAdmin() Then Return RedirectToAction("dashboard", "Administrador")
             Dim formapago As FormaPago = db.FormaPago.Find(id)
             If IsNothing(formapago) Then
                 Return HttpNotFound()
@@ -29,6 +31,7 @@ Namespace libros.Areas.admin
         ' GET: /admin/FormaPago/Create
 
         Function Create() As ActionResult
+            If Not isAdminSuperAdmin() Then Return RedirectToAction("dashboard", "Administrador")
             Return View()
         End Function
 
@@ -50,6 +53,7 @@ Namespace libros.Areas.admin
         ' GET: /admin/FormaPago/Edit/5
 
         Function Edit(Optional ByVal id As Integer = Nothing) As ActionResult
+            If Not isAdminSuperAdmin() Then Return RedirectToAction("dashboard", "Administrador")
             Dim formapago As FormaPago = db.FormaPago.Find(id)
             If IsNothing(formapago) Then
                 Return HttpNotFound()
@@ -75,6 +79,7 @@ Namespace libros.Areas.admin
         ' GET: /admin/FormaPago/Delete/5
 
         Function Delete(Optional ByVal id As Integer = Nothing) As ActionResult
+            If Not isAdminSuperAdmin() Then Return RedirectToAction("dashboard", "Administrador")
             Dim formapago As FormaPago = db.FormaPago.Find(id)
             If IsNothing(formapago) Then
                 Return HttpNotFound()
@@ -92,6 +97,17 @@ Namespace libros.Areas.admin
             db.FormaPago.Remove(formapago)
             db.SaveChanges()
             Return RedirectToAction("Index")
+        End Function
+
+        Private Function isAdminSuperAdmin() As Boolean
+            Dim superPermisos As Integer
+            If Not Request.Cookies("campusUserCookie") Is Nothing Then
+                superPermisos = CBool(Request.Cookies("campusUserCookie")("superPermisos"))
+                If superPermisos = False Then
+                    Return False
+                End If
+            End If
+            Return True
         End Function
 
         Protected Overrides Sub Dispose(ByVal disposing As Boolean)

@@ -12,14 +12,14 @@ End Code
         <div class="control-group">
             @Html.Label("Cuenta", New With {.class = "control-label"})
             <div class="controls">
-                @Html.TextBox("txtUser", Nothing, New With {.class = "input-xlarge", .id = "txtUser"})
+                @Html.TextBox("txtUser", Nothing, New With {.class = "input-xlarge", .id = "txtUser", .maxlength = 255})
             </div>
         </div>
 
         <div class="control-group">
             @Html.Label("Contraseña", New With {.class = "control-label"})
             <div class="controls">
-                @Html.Password("txtPass", Nothing, New With {.class = "input-xlarge", .id = "txtPass"}) <a href = "/Usuario/ForgotPassword">¿Olvidaste tú contraseña?</a>
+                @Html.Password("txtPass", Nothing, New With {.class = "input-xlarge", .id = "txtPass", .maxlength = 255}) <a href = "/Usuario/ForgotPassword">¿Olvidaste tú contraseña?</a>
             </div>
         </div>
 

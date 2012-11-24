@@ -44,7 +44,7 @@ End Code
             @Html.ActionLink("Editar", "Edit", New With {.id = currentItem.idAdministrador}) |
             @Html.ActionLink("Cambio password", "editPassword", New With {.id = currentItem.idAdministrador}) |
             @Html.ActionLink("Detalles", "Details", New With {.id = currentItem.idAdministrador}) |
-            @Html.ActionLink("Eliminar", "Delete", New With {.id = currentItem.idAdministrador}) |
+            @Html.ActionLink("Eliminar", "Delete", New With {.id = currentItem.idAdministrador})
         </td>
     </tr>
 Next

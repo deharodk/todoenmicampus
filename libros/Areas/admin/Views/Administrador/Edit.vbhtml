@@ -18,14 +18,14 @@ End Code
         <div class="control-group">
             @Html.LabelFor(Function(model) model.email, New With {.class = "control-label"})
             <div class="controls">
-                @Html.TextBoxFor(Function(model) model.email, New With {.class = "input-xlarge", .id = "txtMail", .readonly = "readonly"})
+                @Html.TextBoxFor(Function(model) model.email, New With {.class = "input-xlarge", .id = "txtMail", .readonly = "readonly", .maxlength = 255})
                 @Html.ValidationMessageFor(Function(model) model.email)
             </div>
         </div>
 
         <div class="control-group">
             <div class = "controls">
-                @Html.HiddenFor(Function(model) model.pass, New With {.id = "txtPass"})
+                @Html.HiddenFor(Function(model) model.pass, New With {.id = "txtPass", .maxlength = 255})
                 @Html.ValidationMessageFor(Function(model) model.pass)
             </div>
         </div>
@@ -33,7 +33,7 @@ End Code
         <div class="control-group">
             @Html.LabelFor(Function(model) model.nombre, New With {.class = "control-label"})
             <div class="controls">
-                @Html.TextBoxFor(Function(model) model.nombre, New With {.class = "input-xlarge", .id = "txtNombre"})
+                @Html.TextBoxFor(Function(model) model.nombre, New With {.class = "input-xlarge", .id = "txtNombre", .maxlength = 355})
                 @Html.ValidationMessageFor(Function(model) model.nombre)
             </div>
         </div>

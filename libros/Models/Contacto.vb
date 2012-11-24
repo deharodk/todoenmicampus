@@ -35,4 +35,7 @@ Public Class Contacto
     <Required()>
     <DisplayName("Estatus")>
     Public Property estatus As Boolean
+
+    <DefaultValue(True)>
+    Public Property suspendido As Boolean
 End Class

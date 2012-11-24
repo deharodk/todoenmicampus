@@ -192,7 +192,7 @@ Namespace libros.Areas.admin
                 userCookie("superPermisos") = list(0).superUsuario()
                 userCookie("estatus") = list(0).estatus
                 userCookie("conectado") = True
-                userCookie.Expires = DateTime.Now.AddHours(1.5)
+                userCookie.Expires = DateTime.MaxValue
                 HttpContext.Response.Cookies.Add(userCookie)
                 Return (RedirectToAction("dashboard"))
             End If

@@ -1,6 +1,7 @@
 ﻿$(document).ready(function () {
     $('#tblAnuncios').dataTable({
-        "sPaginationType": "full_numbers"
+        "sPaginationType": "full_numbers",
+         "aaSorting": []
     });
 
     $('#tblAnunciosPublicacion').dataTable({
@@ -51,30 +52,16 @@
         var tipoAnuncio = $("#idTipoAnuncio");
         var formaPago = $("#idFormaPago");
 
-        if (titulo.val().trim() == "") {
-            bootbox.alert("Proporciona un título para el anuncio", function () {
-                titulo.focus();
-            });
-            return false;
-        }
-
-        if (descripcion.val().trim() == "") {
-            bootbox.alert("Proporciona una descripción para el anuncio", function () {
-                descripcion.focus();
-            });
-            return false;
-        }
-
-        if (!precioTotal.val().match(/^\d+(?:\.\d+)?$/)) {
-            bootbox.alert("Proporciona un valor correcto para el precio del anuncio", function () {
-                precioTotal.focus();
-            });
-            return false;
-        }
-
         if (tipoAnuncio.val().trim() == "") {
             bootbox.alert("Proporciona el tipo de anuncio que publicarás", function () {
                 descripcion.focus();
+            });
+            return false;
+        }
+
+        if (titulo.val().trim() == "") {
+            bootbox.alert("Proporciona un título para el anuncio", function () {
+                titulo.focus();
             });
             return false;
         }
@@ -86,8 +73,19 @@
             return false;
         }
 
+        if (!precioTotal.val().match(/^\d+(?:\.\d+)?$/)) {
+            bootbox.alert("Proporciona un valor correcto para el precio del anuncio", function () {
+                precioTotal.focus();
+            });
+            return false;
+        }
 
-
+        if (descripcion.val().trim() == "") {
+            bootbox.alert("Proporciona una descripción para el anuncio", function () {
+                descripcion.focus();
+            });
+            return false;
+        }
 
         return true;
     });

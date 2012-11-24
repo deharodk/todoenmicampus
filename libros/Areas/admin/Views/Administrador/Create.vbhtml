@@ -17,7 +17,7 @@ End Code
         <div class="control-group">
             @Html.LabelFor(Function(model) model.email, New With {.class = "control-label"})
             <div class="controls">
-                @Html.TextBoxFor(Function(model) model.email, New With {.class = "input-xlarge", .id = "txtMail"})
+                @Html.TextBoxFor(Function(model) model.email, New With {.class = "input-xlarge", .id = "txtMail", .maxlength = 255})
                 @Html.ValidationMessageFor(Function(model) model.email)
             </div>
         </div>
@@ -25,7 +25,7 @@ End Code
         <div class="control-group">
             @Html.LabelFor(Function(model) model.pass, New With {.class = "control-label"})
             <div class="controls">
-                @Html.PasswordFor(Function(model) model.pass, New With {.class = "input-xlarge", .id = "txtPass"})
+                @Html.PasswordFor(Function(model) model.pass, New With {.class = "input-xlarge", .id = "txtPass", .maxlength = 255})
                 @Html.ValidationMessageFor(Function(model) model.pass)
             </div>
         </div>
@@ -33,7 +33,7 @@ End Code
         <div class="control-group">
             @Html.LabelFor(Function(model) model.nombre, New With {.class = "control-label"})
             <div class="controls">
-                @Html.TextBoxFor(Function(model) model.nombre, New With {.class = "input-xlarge", .id = "txtNombre"})
+                @Html.TextBoxFor(Function(model) model.nombre, New With {.class = "input-xlarge", .id = "txtNombre", .maxlength = 355})
                 @Html.ValidationMessageFor(Function(model) model.nombre)
             </div>
         </div>

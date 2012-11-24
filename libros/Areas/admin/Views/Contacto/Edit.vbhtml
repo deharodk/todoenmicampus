@@ -1,7 +1,7 @@
 ﻿@ModelType libros.Contacto
 
 @Code
-    ViewData("Title") = "Edit"
+    ViewData("Title") = "Cambiar password de usuario"
     Layout = "~/Areas/admin/Views/Shared/_Layout.vbhtml"
 End Code
 
@@ -48,7 +48,7 @@ End Code
         <div class="control-group">
             @Html.LabelFor(Function(model) model.pass, New With {.class = "control-label"})
         <div class="controls">
-            @Html.PasswordFor(Function(model) model.pass, New With {.class = "input-xlarge", .id = "txtPass"})
+            @Html.PasswordFor(Function(model) model.pass, New With {.class = "input-xlarge", .id = "txtPass", .maxlength = 255})
             @Html.ValidationMessageFor(Function(model) model.pass)
         </div>
         </div>
@@ -56,7 +56,7 @@ End Code
         <div class="control-group">
             @Html.Label("Confirmar nueva contraseña", New With {.class = "control-label"})
             <div class="controls">
-                @Html.Password("txtPassConfirm", Nothing, New With {.id = "txtPassConfirm", .class = "input-xlarge"})
+                @Html.Password("txtPassConfirm", Nothing, New With {.id = "txtPassConfirm", .class = "input-xlarge", .maxlength = 255})
             </div>
         </div>
 

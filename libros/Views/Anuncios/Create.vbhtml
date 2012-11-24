@@ -23,7 +23,7 @@ End Code
         <div class="control-group">
             @Html.LabelFor(Function(model) model.titulo, New With {.class = "control-label"})
             <div class="controls">
-                @Html.TextBoxFor(Function(model) model.titulo, New With {.class = "input-xlarge", .id = "txtTitulo", .placeholder = "Título"})
+                @Html.TextBoxFor(Function(model) model.titulo, New With {.class = "input-xlarge", .id = "txtTitulo", .placeholder = "Título", .maxlength = 50})
                 @Html.ValidationMessageFor(Function(model) model.titulo)
             </div>
         </div>
@@ -39,7 +39,7 @@ End Code
         <div class="control-group">
             @Html.LabelFor(Function(model) model.precioTotal, New With {.class = "control-label"})
             <div class="controls">
-                @Html.TextBoxFor(Function(model) model.precioTotal, New With {.class = "input-xlarge", .id = "txtPrecioTotal", .placeholder = "Precio que propones"})
+                @Html.TextBoxFor(Function(model) model.precioTotal, New With {.class = "input-xlarge", .id = "txtPrecioTotal", .placeholder = "Precio que propones", .maxlength = 10})
                 @Html.ValidationMessageFor(Function(model) model.precioTotal)
             </div>
         </div>

@@ -27,28 +27,28 @@ Namespace libros.Areas.admin
             Return View(contacto)
         End Function
 
-        '
-        ' GET: /admin/Contacto/Create
+        ''
+        '' GET: /admin/Contacto/Create
 
-        Function Create() As ActionResult
-            ViewBag.idFacultad = New SelectList(db.Facultad, "idFacultad", "nombre")
-            Return View()
-        End Function
+        'Function Create() As ActionResult
+        '    ViewBag.idFacultad = New SelectList(db.Facultad, "idFacultad", "nombre")
+        '    Return View()
+        'End Function
 
-        '
-        ' POST: /admin/Contacto/Create
+        ''
+        '' POST: /admin/Contacto/Create
 
-        <HttpPost()> _
-        Function Create(ByVal contacto As Contacto) As ActionResult
-            If ModelState.IsValid Then
-                db.Contactoes.Add(contacto)
-                db.SaveChanges()
-                Return RedirectToAction("Index")
-            End If
+        '<HttpPost()> _
+        'Function Create(ByVal contacto As Contacto) As ActionResult
+        '    If ModelState.IsValid Then
+        '        db.Contactoes.Add(contacto)
+        '        db.SaveChanges()
+        '        Return RedirectToAction("Index")
+        '    End If
 
-            ViewBag.idFacultad = New SelectList(db.Facultad, "idFacultad", "nombre", contacto.idFacultad)
-            Return View(contacto)
-        End Function
+        '    ViewBag.idFacultad = New SelectList(db.Facultad, "idFacultad", "nombre", contacto.idFacultad)
+        '    Return View(contacto)
+        'End Function
 
         '
         ' GET: /admin/Contacto/Edit/5
@@ -109,6 +109,7 @@ Namespace libros.Areas.admin
         Function DeleteConfirmed(ByVal id As Integer) As RedirectToRouteResult
             Dim contacto As Contacto = db.Contactoes.Find(id)
             contacto.estatus = False
+            contacto.suspendido = True
             db.SaveChanges()
             Return RedirectToAction("Index")
         End Function

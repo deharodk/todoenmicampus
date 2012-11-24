@@ -18,7 +18,10 @@
 
 .anuncioH4
 {
-    font-size: 21px;    
+    font-size: 21px; 
+    word-wrap:break-word;
+    /*width: 150px;   */
+    
 }
 
 .anuncioTable
@@ -49,3 +52,10 @@
 .dashboardTable th{
     font-size: 20px;
 }
+
+.ww
+{
+    word-wrap:break-word;
+}
+
+

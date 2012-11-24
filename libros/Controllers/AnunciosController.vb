@@ -10,8 +10,7 @@ Namespace libros
         ' GET: /Anuncios/
 
         Function Index() As ActionResult
-            Dim anuncios = db.Anuncios.Include(Function(a) a.Contacto).Include(Function(a) a.TipoAnuncio).Include(Function(a) a.FormaPago)
-            Return View(anuncios.ToList())
+            Return RedirectToAction("Index", "Home")
         End Function
 
         ' GET: /Anuncios/
@@ -28,7 +27,7 @@ Namespace libros
                 Return RedirectToAction("Index", "Home")
             End If
 
-            Dim anuncios = db.Anuncios.Include(Function(a) a.Contacto).Include(Function(a) a.TipoAnuncio).Include(Function(a) a.FormaPago).Where(Function(a) a.idContacto = idUsuario)
+            Dim anuncios = db.Anuncios.Include(Function(a) a.Contacto).Include(Function(a) a.TipoAnuncio).Include(Function(a) a.FormaPago).Where(Function(a) a.idContacto = idUsuario).OrderByDescending(Function(a) a.idAnuncio)
             Return View(anuncios.ToList())
         End Function
 
@@ -101,8 +100,8 @@ Namespace libros
             End If
 
             ViewBag.idContacto = New SelectList(db.Contactoes, "idContacto", "nombre")
-            ViewBag.idTipoAnuncio = New SelectList(db.TipoAnuncios, "idTipoAnuncio", "nombre")
-            ViewBag.idFormaPago = New SelectList(db.FormaPago, "idFormaPago", "nombre")
+            ViewBag.idTipoAnuncio = New SelectList(db.TipoAnuncios.Where(Function(a) a.estatus = True), "idTipoAnuncio", "nombre")
+            ViewBag.idFormaPago = New SelectList(db.FormaPago.Where(Function(a) a.estatus = True), "idFormaPago", "nombre")
             Return View()
         End Function
 
@@ -139,8 +138,8 @@ Namespace libros
             End If
 
             ViewBag.idContacto = New SelectList(db.Contactoes, "idContacto", "nombre", anuncio.idContacto)
-            ViewBag.idTipoAnuncio = New SelectList(db.TipoAnuncios, "idTipoAnuncio", "nombre", anuncio.idTipoAnuncio)
-            ViewBag.idFormaPago = New SelectList(db.FormaPago, "idFormaPago", "nombre", anuncio.idFormaPago)
+            ViewBag.idTipoAnuncio = New SelectList(db.TipoAnuncios.Where(Function(a) a.estatus = True), "idTipoAnuncio", "nombre", anuncio.idTipoAnuncio)
+            ViewBag.idFormaPago = New SelectList(db.FormaPago.Where(Function(a) a.estatus = True), "idFormaPago", "nombre", anuncio.idFormaPago)
             Return View(anuncio)
         End Function
         '
@@ -167,8 +166,8 @@ Namespace libros
             End If
 
             ViewBag.idContacto = New SelectList(db.Contactoes, "idContacto", "nombre", anuncio.idContacto)
-            ViewBag.idTipoAnuncio = New SelectList(db.TipoAnuncios, "idTipoAnuncio", "nombre", anuncio.idTipoAnuncio)
-            ViewBag.idFormaPago = New SelectList(db.FormaPago, "idFormaPago", "nombre", anuncio.idFormaPago)
+            ViewBag.idTipoAnuncio = New SelectList(db.TipoAnuncios.Where(Function(a) a.estatus = True), "idTipoAnuncio", "nombre", anuncio.idTipoAnuncio)
+            ViewBag.idFormaPago = New SelectList(db.FormaPago.Where(Function(a) a.estatus = True), "idFormaPago", "nombre", anuncio.idFormaPago)
             Return View(anuncio)
         End Function
 
@@ -184,6 +183,10 @@ Namespace libros
 
             End Try
 
+            If anuncio.idFormaPago = 0 Then
+                anuncio.idFormaPago = 1
+            End If
+
             If ModelState.IsValid Then
                 db.Entry(anuncio).State = EntityState.Modified
                 db.SaveChanges()
@@ -191,8 +194,8 @@ Namespace libros
             End If
 
             ViewBag.idContacto = New SelectList(db.Contactoes, "idContacto", "nombre", anuncio.idContacto)
-            ViewBag.idTipoAnuncio = New SelectList(db.TipoAnuncios, "idTipoAnuncio", "nombre", anuncio.idTipoAnuncio)
-            ViewBag.idFormaPago = New SelectList(db.FormaPago, "idFormaPago", "nombre", anuncio.idFormaPago)
+            ViewBag.idTipoAnuncio = New SelectList(db.TipoAnuncios.Where(Function(a) a.estatus = True), "idTipoAnuncio", "nombre", anuncio.idTipoAnuncio)
+            ViewBag.idFormaPago = New SelectList(db.FormaPago.Where(Function(a) a.estatus = True), "idFormaPago", "nombre", anuncio.idFormaPago)
             Return View(anuncio)
         End Function
 

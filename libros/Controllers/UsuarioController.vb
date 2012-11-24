@@ -15,8 +15,8 @@ Namespace libros
         ' GET: /Usuario/
 
         Function Index() As ActionResult
-            Dim contactoes = db.Contactoes.Include(Function(c) c.Facultad)
-            Return View(contactoes.ToList())
+
+            Return View("login")
         End Function
 
         '
@@ -24,7 +24,6 @@ Namespace libros
 
         Function Details(Optional ByVal id As Integer = Nothing) As ActionResult
             Dim contacto As Contacto = db.Contactoes.Find(id)
-
             Dim idUsuario As Integer = 0
             Try
                 idUsuario = CInt(Request.Cookies("campusContactoCookie")("idContacto"))
@@ -58,7 +57,7 @@ Namespace libros
         ' GET: /Usuario/Create
 
         Function Create() As ActionResult
-            ViewBag.idFacultad = New SelectList(db.Facultad, "idFacultad", "nombreCorto")
+            ViewBag.idFacultad = New SelectList(db.Facultad.Where(Function(a) a.estatus = True), "idFacultad", "nombreCorto")
             Return View()
         End Function
 
@@ -86,7 +85,7 @@ Namespace libros
                 Return RedirectToAction("Index", "Home")
             End If
 
-            ViewBag.idFacultad = New SelectList(db.Facultad, "idFacultad", "nombreCorto", contacto.idFacultad)
+            ViewBag.idFacultad = New SelectList(db.Facultad.Where(Function(a) a.estatus = True), "idFacultad", "nombreCorto", contacto.idFacultad)
             Return View(contacto)
         End Function
 
@@ -107,7 +106,7 @@ Namespace libros
             If IsNothing(contacto) Then
                 Return HttpNotFound()
             End If
-            ViewBag.idFacultad = New SelectList(db.Facultad, "idFacultad", "nombreCorto", contacto.idFacultad)
+            ViewBag.idFacultad = New SelectList(db.Facultad.Where(Function(a) a.estatus = True), "idFacultad", "nombreCorto", contacto.idFacultad)
             Return View(contacto)
         End Function
 
@@ -120,12 +119,12 @@ Namespace libros
             If ModelState.IsValid Then
                 db.Entry(contacto).State = EntityState.Modified
                 db.SaveChanges()
-                ViewBag.idFacultad = New SelectList(db.Facultad, "idFacultad", "nombreCorto", contacto.idFacultad)
+                ViewBag.idFacultad = New SelectList(db.Facultad.Where(Function(a) a.estatus = True), "idFacultad", "nombreCorto", contacto.idFacultad)
                 ViewBag.actualizado = True
-                Return View("Edit")
+                Return View("Edit", contacto)
             End If
 
-            ViewBag.idFacultad = New SelectList(db.Facultad, "idFacultad", "nombreCorto", contacto.idFacultad)
+            ViewBag.idFacultad = New SelectList(db.Facultad.Where(Function(a) a.estatus = True), "idFacultad", "nombreCorto", contacto.idFacultad)
             Return View(contacto)
         End Function
 
@@ -186,14 +185,24 @@ Namespace libros
                 userCookie("conectado") = True
                 userCookie.Expires = DateTime.Now.AddDays(1)
                 HttpContext.Response.Cookies.Add(userCookie)
-
-                If TempData("toPublish") = True Then
-                    Return (RedirectToAction("Create", "Anuncios"))
-                ElseIf TempData("toViewProfile") = True Then
-                    Return (RedirectToAction("Details", "Usuario", New With {.id = TempData("userToSee")}))
+                If list.FirstOrDefault().estatus = True Then
+                    If TempData("toPublish") = True And list.FirstOrDefault().suspendido = False Then
+                        Return (RedirectToAction("Create", "Anuncios"))
+                    ElseIf TempData("toViewProfile") = True And list.FirstOrDefault().suspendido = False Then
+                        Return (RedirectToAction("Details", "Usuario", New With {.id = TempData("userToSee")}))
+                    End If
+                    Return (RedirectToAction("Index", "Home"))
+                ElseIf list.FirstOrDefault().estatus = False And list.FirstOrDefault().suspendido = True Then
+                    Dim usuario As New Contacto
+                    usuario = db.Contactoes.Find(list.FirstOrDefault().idContacto)
+                    usuario.suspendido = False
+                    usuario.estatus = True
+                    db.SaveChanges()
+                    Return (RedirectToAction("HasVuelto", "Home"))
+                Else
+                    ViewBag.logFails = True
+                    Return View("login")
                 End If
-
-                Return (RedirectToAction("Index", "Home"))
             End If
             ViewBag.logFails = True
             Return View("login")
@@ -207,6 +216,7 @@ Namespace libros
         Function DeleteConfirmed(ByVal id As Integer) As RedirectToRouteResult
             Dim contacto As Contacto = db.Contactoes.Find(id)
             contacto.estatus = False
+            contacto.suspendido = True
             db.SaveChanges()
             Dim aCookie As HttpCookie
             Dim cookieName As String
@@ -333,6 +343,18 @@ Namespace libros
         Function passRecover() As ActionResult
             Dim userName As String
             userName = Request.Params("txtUser")
+
+
+            Dim usuario = db.Database.SqlQuery(Of Contacto)("exec spEncontrarUsuario @correo", New SqlParameter("correo", userName)).FirstOrDefault()
+
+            If IsNothing(usuario) Then
+                ViewBag.userNotExists = True
+                Return View("ForgotPassword")
+            End If
+
+            Dim idUsuario As Integer = usuario.idContacto
+            Dim passwordUser As String = usuario.pass
+            Dim mailBody As String = emailRecuperarPassword().Replace("remplazaesto", "http://localhost:4670/Usuario/ProcesoRecuperacion?id=" & idUsuario & "&key=" & passwordUser)
             Dim email As String = "deharodk@gmail.com"
             Dim password As String = "afi999ladk93"
             Dim loginInfo As New NetworkCredential(email, password)
@@ -341,8 +363,8 @@ Namespace libros
 
             msg.From = New MailAddress(email)
             msg.To.Add(New MailAddress(userName))
-            msg.Subject = "Prueba"
-            msg.Body = "<h1> HOLI </h1>"
+            msg.Subject = "Recuperación de contraseña - todo en mi campus"
+            msg.Body = mailBody.ToString()
             msg.IsBodyHtml = True
 
             smtpClient.EnableSsl = True
@@ -350,7 +372,108 @@ Namespace libros
             smtpClient.Credentials = loginInfo
             smtpClient.Send(msg)
 
-            Return RedirectToAction("Index", "Home")
+            Return RedirectToAction("EmailRecuperacionEnviado", "Home")
+        End Function
+
+        Function emailRecuperarPassword() As String
+            Dim myClient As New WebClient()
+            Dim myPageHTML As String = Nothing
+            Dim requestHTML As Byte()
+            Dim currentPageUrl As String = ""
+            Dim utf8 As New UTF8Encoding()
+            requestHTML = myClient.DownloadData("http://drjuanpabloreyesolivans.com/mail/full_width.html")
+            myPageHTML = utf8.GetString(requestHTML)
+            Return (myPageHTML)
+        End Function
+
+        '
+        'GET: /Usuario/ProcesoRecuperacion?id=1&key=v2t4wfHG==
+
+        Function ProcesoRecuperacion() As ActionResult
+            Return View()
+        End Function
+
+        '
+        'GET /Usuario/QuieroVolver
+
+        Function QuieroVolver() As ActionResult
+            Return View()
+        End Function
+
+        '
+        'POST /Usuario/QuieroVolver
+        <HttpPost()> _
+        Function QuieroVolverMail() As ActionResult
+            Dim quiereVolver As String = ""
+            quiereVolver = Request.Params("txtUser")
+
+            If IsNothing(quiereVolver) Then
+                quiereVolver = ""
+            End If
+
+            Dim mailBody As String = "El usuario: " & ""
+            Dim email As String = "deharodk@gmail.com"
+            Dim password As String = "afi999ladk93"
+            Dim loginInfo As New NetworkCredential(email, password)
+            Dim msg = New MailMessage()
+            Dim smtpClient = New SmtpClient("smtp.gmail.com", 587)
+
+            msg.From = New MailAddress(email)
+            msg.To.Add(New MailAddress(email))
+            msg.Subject = "Prueba"
+            msg.Body = mailBody.ToString()
+            msg.IsBodyHtml = True
+
+            smtpClient.EnableSsl = True
+            smtpClient.UseDefaultCredentials = False
+            smtpClient.Credentials = loginInfo
+            smtpClient.Send(msg)
+
+            Return RedirectToAction("CorreoRecuperacionEnviado", "Home")
+        End Function
+
+        '
+        'POST: /Usuario/passRecoverChange()
+        <HttpPost()> _
+        Function passRecoverChange() As ActionResult
+            Dim id As Integer
+            Dim key As String
+            Dim newPass As String
+            If Not IsNumeric(Request.Params("id")) Then
+                ViewBag.logFails = True
+                Return View("ProcesoRecuperacion")
+            Else
+                id = CInt(Request.Params("id"))
+            End If
+
+            If Not IsNothing(Request.Params("key")) Then
+                key = Server.UrlDecode(Request.Params("key")).Replace(" ", "+")
+            Else
+                key = ""
+            End If
+
+            newPass = Request.Params("txtPass")
+
+            Dim usuario As Contacto = db.Contactoes.Find(id)
+
+            If IsNothing(usuario) Then
+                ViewBag.logFails = True
+                Return View("ProcesoRecuperacion")
+            End If
+            If usuario.pass <> key Then
+                ViewBag.logFails = True
+                Return View("ProcesoRecuperacion")
+            End If
+
+            Dim byteInput As Byte() = Encoding.UTF8.GetBytes(newPass)
+            Dim hash As HashAlgorithm = New SHA512Managed()
+            newPass = Convert.ToBase64String(hash.ComputeHash(byteInput))
+            usuario.pass = newPass
+            db.SaveChanges()
+            ViewBag.logFails = False
+
+
+            Return RedirectToAction("PasswordRecuperado", "Home")
         End Function
 
         Protected Overrides Sub Dispose(ByVal disposing As Boolean)

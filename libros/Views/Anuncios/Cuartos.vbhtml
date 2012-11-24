@@ -24,9 +24,9 @@ End Code
             <div class = "anuncioDiv">
                 <h4 class = "anuncioH4">@currentItem.titulo</h4>
                 <p class = "anuncioP">
-                    <b>Anunciante:</b> <a href = "/Usuario/Details/@currentItem.idContacto">@currentItem.Contacto.nombre</a>
+                    <b>Anunciante:</b> <a target = "_blank" href = "/Usuario/Details/@currentItem.idContacto">@currentItem.Contacto.nombre</a>
                     <br />
-                    <b>Tipo anuncio:</b>  <a href = "#">@currentItem.TipoAnuncio.nombre</a>
+                    <b>Tipo anuncio:</b>  <a href = "/Anuncios/Categoria/@currentItem.idTipoAnuncio">@currentItem.TipoAnuncio.nombre</a>
                     <br />
                     <b>Costo: </b> <code>$ @Math.Round(currentItem.precioTotal, 2)</code>
                     <br />

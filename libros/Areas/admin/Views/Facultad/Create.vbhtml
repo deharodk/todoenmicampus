@@ -15,7 +15,7 @@ End Code
         <div class="control-group">
 			@Html.LabelFor(Function(model) model.nombre, New With {.class = "control-label"})
 				<div class="controls">
-					 @Html.TextBoxFor(Function(model) model.nombre, New With {.class = "input-xlarge", .id = "txtNombre"})
+					 @Html.TextBoxFor(Function(model) model.nombre, New With {.class = "input-xlarge", .id = "txtNombre", .maxlength = 355})
 					<span class="help-inline">  @Html.ValidationMessageFor(Function(model) model.nombre) </span>
 				<p class="help-block"></p>
 			    </div>
@@ -24,7 +24,7 @@ End Code
         <div class="control-group">
 			@Html.LabelFor(Function(model) model.nombreCorto, New With {.class = "control-label"})
 				<div class="controls">
-					 @Html.TextBoxFor(Function(model) model.nombreCorto, New With {.class = "input-xlarge", .id = "txtNombreCorto"})
+					 @Html.TextBoxFor(Function(model) model.nombreCorto, New With {.class = "input-xlarge", .id = "txtNombreCorto", .maxlength = 15})
 					<span class="help-inline"> @Html.ValidationMessageFor(Function(model) model.nombreCorto) </span>
 				<p class="help-block"></p>
 			    </div>
