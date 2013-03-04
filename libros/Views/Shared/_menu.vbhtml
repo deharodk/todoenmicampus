@@ -60,13 +60,6 @@ End code
                 </a>
               </li>
 
-            @*  <li>
-                <a href="/Usuario/QuieroVolver">
-                <i class="icon-refresh"></i> recuperar cuenta
-                </a>
-              </li>*@
-
-
             </ul>
           End If   
           </div>
@@ -76,7 +69,7 @@ End code
               <li><a href="/Anuncios/LibrosMaterial">Libros/Material académico</a></li>
               <li><a href = "/Anuncios/Cuartos">Roomies</a></li>
               <li><a href="/Anuncios/Create"><i class="icon-arrow-right"></i>¡Publicar anuncio!</a></li>
-              
+              <li><a href="/Home/ComoFunciona"><i class="icon-star"></i>¿Cómo funciona?</a></li>
             </ul>
           </div>
         </div>

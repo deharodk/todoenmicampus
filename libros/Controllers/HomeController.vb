@@ -40,5 +40,9 @@ Namespace libros
         Function AvisoDePrivacidad() As ActionResult
             Return View()
         End Function
+
+        Function ComoFunciona() As ActionResult
+            Return View()
+        End Function
     End Class
 End Namespace
