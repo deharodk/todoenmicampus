@@ -354,12 +354,12 @@ Namespace libros
 
             Dim idUsuario As Integer = usuario.idContacto
             Dim passwordUser As String = usuario.pass
-            Dim mailBody As String = emailRecuperarPassword().Replace("remplazaesto", "http://localhost:4670/Usuario/ProcesoRecuperacion?id=" & idUsuario & "&key=" & passwordUser)
-            Dim email As String = "deharodk@gmail.com"
-            Dim password As String = "afi999ladk93"
+            Dim mailBody As String = emailRecuperarPassword().Replace("remplazaesto", "http://todoenmicampus.com/Usuario/ProcesoRecuperacion?id=" & idUsuario & "&key=" & passwordUser)
+            Dim email As String = "usuarios@todoenmicampus.com"
+            Dim password As String = "campus1421226dk"
             Dim loginInfo As New NetworkCredential(email, password)
             Dim msg = New MailMessage()
-            Dim smtpClient = New SmtpClient("smtp.gmail.com", 587)
+            Dim smtpClient = New SmtpClient("mail.todoenmicampus.com", 465)
 
             msg.From = New MailAddress(email)
             msg.To.Add(New MailAddress(userName))

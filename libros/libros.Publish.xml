@@ -1,2 +1,4 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<publishData />
+<publishData>
+  <publishProfile publishUrl="speedwell.arvixe.com" deleteExistingFiles="False" ftpAnonymousLogin="False" ftpPassiveMode="True" msdeploySite="todoenmicampus.com" msdeploySiteID="" msdeployRemoteSitePhysicalPath="" msdeployAllowUntrustedCertificate="True" msdeploySkipExtraFilesOnServer="True" msdeployMarkAsApp="True" profileName="Perfil1" publishMethod="MSDeploy" replaceMatchingFiles="True" userName="todoenmicampus.c_pub" savePWD="True" userPWD="AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAjsSWbg8B3kaP78BJ6P36sAAAAAACAAAAAAAQZgAAAAEAACAAAACX2X2VKwvphTfhnGzz8F7sMvhcehbBeMXQyhSmiGMXCQAAAAAOgAAAAAIAACAAAABAFc07AJ2GPrYDfLRdJRYVHai7n2BWIl9CKIhhahKGfCAAAAD6frqVwQWXpBQgMBiweXJ62a01e9mhpWNWLGr26H8hh0AAAADsBXpD6JOvgnY2uWbpIS50HF3QZbWG3kp1QzamXCy7wNRVvEt4QKn2bIuveEi0UCbl7rI/tlouObPRV/5chKPv" SelectedForPublish="True" />
+</publishData>
