@@ -4,7 +4,6 @@
     });
 });
 
-
 (function (d, s, id) {
     var js, fjs = d.getElementsByTagName(s)[0];
     if (d.getElementById(id)) return;
@@ -13,22 +12,25 @@
     fjs.parentNode.insertBefore(js, fjs);
 } (document, 'script', 'facebook-jssdk'));
 
-
 window.fbAsyncInit = function () {
 
     $("#fbLogin").click(function () {
 
-                FB.login(function (response) {
-                    if (response.authResponse) {
-                        FB.api('/me?fields=name,email,username', function (response) {
-                            $.ajax({
-                                type: "POST",
-                                dataType: "json",
-                                contentType: "application/x-www-form-urlencoded;charset=ISO-8859-1",
-                                url: "/usuario/handleFBLogin",
-                                data: "correo=" + response.email + "&fbacc=" + response.username + "&nombre=" + response.name,
-                                success:
+        FB.login(function (response) {
+            if (response.authResponse) {
+                FB.api('/me?fields=name,email,username', function (response) {
+                    $.ajax({
+                        type: "POST",
+                        dataType: "json",
+                        contentType: "application/x-www-form-urlencoded;charset=ISO-8859-1",
+                        url: "/usuario/handleFBLogin",
+                        data: "correo=" + response.email + "&fbacc=" + response.username + "&nombre=" + response.name,
+                        success:
                                     function (data) {
+                                        if (data[2] == 'usrblk') {
+                                            bootbox.alert('Tu cuenta parece estar suspendida, si crees que esto es un error contacta a un administrador');
+                                            return;
+                                        }
                                         if (data[0] == true) {
                                             bootbox.alert("Ha ocurrido un problema tratando de conectarte mediante facebook");
                                         }
@@ -40,19 +42,12 @@ window.fbAsyncInit = function () {
                                                 location.href = '/' + data[3];
                                             }
                                         }
-                                        //console.log(data[1]);
                                     }
-                            });
-
-                            //console.log('Good to see you, Nombre: ' + response.name + ' Username: ' + response.username + ' Correo: ' + response.email);
-
-                        });
-                    } else {
-                        bootbox.alert('Proporciona tus credenciales correctas para acceder mediante facebook');
-                        //console.log('User cancelled login or did not fully authorize.');
-                    }
-                }, { scope: 'email' });
-
+                    });
+                });
+            } else {
+                bootbox.alert('Proporciona tus credenciales correctas para acceder mediante facebook');
+            }
+        }, { scope: 'email' });
     });
-
 }

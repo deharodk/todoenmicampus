@@ -306,6 +306,11 @@ Namespace libros
                         Session.Remove("toPublish")
                         Session.Remove("toViewProfile")
                         Session.Remove("userToSee")
+                    ElseIf user.estatus = False Then
+                        'El usuario está inhabiltado
+                        model.Add(False, "error")
+                        model.Add(False, "newacc")
+                        model.Add("usrblk", "mensaje")
                     End If
                 Else
                     ' Le creamos una cuenta normal, en base a lo que trajo FB
@@ -534,20 +539,20 @@ Namespace libros
 
             Dim idUsuario As Integer = usuario.idContacto
             Dim passwordUser As String = usuario.pass
-            Dim mailBody As String = emailRecuperarPassword().Replace("remplazaesto", "http://todoenmicampus.com/Usuario/ProcesoRecuperacion?id=" & idUsuario & "&key=" & passwordUser)
-            Dim email As String = "usuarios@todoenmicampus.com"
-            Dim password As String = "campus1421226dk"
+            Dim mailBody As String = emailRecuperarPassword().Replace("remplazaesto", ConfigurationManager.AppSettings("urlRP").ToString() & idUsuario & "&key=" & passwordUser)
+            Dim email As String = ConfigurationManager.AppSettings("mailUsr")
+            Dim password As String = ConfigurationManager.AppSettings("mailPwd")
             Dim loginInfo As New NetworkCredential(email, password)
             Dim msg = New MailMessage()
-            Dim smtpClient = New SmtpClient("mail.todoenmicampus.com", 465)
+            Dim smtpClient = New SmtpClient(ConfigurationManager.AppSettings("smtpServer").ToString(), CInt(ConfigurationManager.AppSettings("smtpPosrt")))
 
-            msg.From = New MailAddress(email)
+            msg.From = New MailAddress(email, ConfigurationManager.AppSettings("displayUsr"))
             msg.To.Add(New MailAddress(userName))
             msg.Subject = "Recuperación de contraseña - todo en mi campus"
             msg.Body = mailBody.ToString()
             msg.IsBodyHtml = True
 
-            smtpClient.EnableSsl = True
+            'smtpClient.EnableSsl = True
             smtpClient.UseDefaultCredentials = False
             smtpClient.Credentials = loginInfo
             smtpClient.Send(msg)
@@ -561,7 +566,7 @@ Namespace libros
             Dim requestHTML As Byte()
             Dim currentPageUrl As String = ""
             Dim utf8 As New UTF8Encoding()
-            requestHTML = myClient.DownloadData("http://drjuanpabloreyesolivans.com/mail/full_width.html")
+            requestHTML = myClient.DownloadData(ConfigurationManager.AppSettings("tmpMailRP").ToString())
             myPageHTML = utf8.GetString(requestHTML)
             Return (myPageHTML)
         End Function
