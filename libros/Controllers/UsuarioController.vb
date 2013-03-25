@@ -144,6 +144,10 @@ Namespace libros
 
         Function login() As ActionResult
             Dim idContacto As Integer = 0
+            Session("toPublish") = TempData("toPublish")
+            Session("toViewProfile") = TempData("toViewProfile")
+            Session("userToSee") = TempData("userToSee")
+
             Try
                 idContacto = CInt(Request.Cookies("campusContactoCookie")("idContacto"))
             Catch ex As NullReferenceException
@@ -164,6 +168,7 @@ Namespace libros
         Function doLogin() As ActionResult
             Dim username As String = Request.Params("txtUser")
             Dim pass As String = Request.Params("txtPass")
+
             If IsNothing(username) Then
                 username = ""
             End If
@@ -186,11 +191,21 @@ Namespace libros
                 userCookie.Expires = DateTime.Now.AddDays(1)
                 HttpContext.Response.Cookies.Add(userCookie)
                 If list.FirstOrDefault().estatus = True Then
-                    If TempData("toPublish") = True And list.FirstOrDefault().suspendido = False Then
+                    If Session("toPublish") = True And list.FirstOrDefault().suspendido = False Then
+                        Session.Remove("toPublish")
+                        Session.Remove("toViewProfile")
+                        Session.Remove("userToSee")
                         Return (RedirectToAction("Create", "Anuncios"))
-                    ElseIf TempData("toViewProfile") = True And list.FirstOrDefault().suspendido = False Then
-                        Return (RedirectToAction("Details", "Usuario", New With {.id = TempData("userToSee")}))
+                    ElseIf Session("toViewProfile") = True And list.FirstOrDefault().suspendido = False Then
+                        Dim usrToSee = Session("userToSee")
+                        Session.Remove("toPublish")
+                        Session.Remove("toViewProfile")
+                        Session.Remove("userToSee")
+                        Return (RedirectToAction("Details", "Usuario", New With {.id = usrToSee}))
                     End If
+                    Session.Remove("toPublish")
+                    Session.Remove("toViewProfile")
+                    Session.Remove("userToSee")
                     Return (RedirectToAction("Index", "Home"))
                 ElseIf list.FirstOrDefault().estatus = False And list.FirstOrDefault().suspendido = True Then
                     Dim usuario As New Contacto
@@ -198,15 +213,180 @@ Namespace libros
                     usuario.suspendido = False
                     usuario.estatus = True
                     db.SaveChanges()
+                    Session.Remove("toPublish")
+                    Session.Remove("toViewProfile")
+                    Session.Remove("userToSee")
                     Return (RedirectToAction("HasVuelto", "Home"))
                 Else
                     ViewBag.logFails = True
+                    Session.Remove("toPublish")
+                    Session.Remove("toViewProfile")
+                    Session.Remove("userToSee")
                     Return View("login")
                 End If
             End If
             ViewBag.logFails = True
             Return View("login")
         End Function
+
+        '
+        ' POST /Usuario/handleFBLogin
+        <HttpPost()> _
+        Function handleFBLogin() As String
+            Dim model As Collection = New Collection
+            Dim serializer As New JavaScriptSerializer()
+            Try
+                Dim fbUserName As String = CStr(Request.Params("fbacc"))
+                Dim correo As String = CStr(Request.Params("correo"))
+                Dim nombre As String = CStr(Request.Params("nombre"))
+
+                Dim pass = Replace(Guid.NewGuid().ToString(), "-", "").Substring(0, 15)
+                Dim passToShow As String = pass.ToString()
+
+                If IsNothing(fbUserName) Then fbUserName = ""
+                If IsNothing(correo) Then correo = ""
+                If IsNothing(nombre) Then nombre = ""
+
+                Dim user = db.Contactoes.FirstOrDefault(Function(a) a.email = correo)
+
+                If Not IsNothing(user) Then
+                    If user.estatus = True Then
+                        Dim userCookie As New HttpCookie("campusContactoCookie")
+                        userCookie("idContacto") = user.idContacto
+                        userCookie("email") = user.email.ToString()
+                        userCookie("nombre") = user.nombre.ToString()
+                        userCookie("idFacultad") = user.idFacultad
+                        userCookie("estatus") = user.estatus
+                        userCookie("conectado") = True
+                        userCookie.Expires = DateTime.Now.AddDays(1)
+                        HttpContext.Response.Cookies.Add(userCookie)
+
+                        If Session("toPublish") = True And user.suspendido = False Then
+                            model.Add(False, "error")
+                            model.Add(False, "newacc")
+                            model.Add("", "mensaje")
+                            model.Add("Anuncios/Create", "redirect")
+
+                        ElseIf Session("toViewProfile") = True And user.suspendido = False Then
+                            model.Add(False, "error")
+                            model.Add(False, "newacc")
+                            model.Add("", "mensaje")
+                            model.Add("Usuario/Details/" & CStr(Session("userToSee")), "redirect")
+
+                        Else
+                            model.Add(False, "error")
+                            model.Add(False, "newacc")
+                            model.Add("", "mensaje")
+                            model.Add("Home/Index", "redirect")
+
+                        End If
+
+                    ElseIf user.estatus = False And user.suspendido = True Then
+                        Dim usuario As New Contacto
+                        usuario = db.Contactoes.Find(user.idContacto)
+                        usuario.suspendido = False
+                        usuario.estatus = True
+                        db.SaveChanges()
+
+                        Dim userCookie As New HttpCookie("campusContactoCookie")
+                        userCookie("idContacto") = user.idContacto
+                        userCookie("email") = user.email.ToString()
+                        userCookie("nombre") = user.nombre.ToString()
+                        userCookie("idFacultad") = user.idFacultad
+                        userCookie("estatus") = user.estatus
+                        userCookie("conectado") = True
+                        userCookie.Expires = DateTime.Now.AddDays(1)
+                        HttpContext.Response.Cookies.Add(userCookie)
+
+                        model.Add(False, "error")
+                        model.Add(False, "newacc")
+                        model.Add("", "mensaje")
+                        model.Add("Home/HasVuelto", "redirect")
+
+                        Session.Remove("toPublish")
+                        Session.Remove("toViewProfile")
+                        Session.Remove("userToSee")
+                    End If
+                Else
+                    ' Le creamos una cuenta normal, en base a lo que trajo FB
+
+                    Dim byteInput As Byte() = Encoding.UTF8.GetBytes(pass)
+                    Dim hash As HashAlgorithm = New SHA512Managed()
+                    pass = Convert.ToBase64String(hash.ComputeHash(byteInput))
+
+                    Dim contacto As New Contacto
+
+                    contacto.cuentaFB = fbUserName
+                    contacto.nombre = nombre
+                    contacto.email = correo
+                    contacto.idFacultad = 7
+                    contacto.suspendido = False
+                    contacto.pass = Convert.ToBase64String(hash.ComputeHash(byteInput))
+                    contacto.estatus = True
+
+                    db.Contactoes.Add(contacto)
+                    db.SaveChanges()
+
+                    user = db.Contactoes.FirstOrDefault(Function(a) a.email = correo)
+
+                    Dim userCookie As New HttpCookie("campusContactoCookie")
+                    userCookie("idContacto") = contacto.idContacto
+                    userCookie("email") = contacto.email.ToString()
+                    userCookie("nombre") = contacto.nombre.ToString()
+                    userCookie("idFacultad") = contacto.idFacultad
+                    userCookie("estatus") = contacto.estatus
+                    userCookie("conectado") = True
+                    userCookie.Expires = DateTime.Now.AddDays(1)
+                    HttpContext.Response.Cookies.Add(userCookie)
+
+                    If Session("toPublish") = True And user.suspendido = False Then
+                        model.Add(False, "error")
+                        model.Add(True, "newacc")
+                        model.Add("", "mensaje")
+                        model.Add("Anuncios/Create", "redirect")
+                        model.Add(correo, "username")
+                        model.Add(passToShow, "pass")
+                    ElseIf Session("toViewProfile") = True And user.suspendido = False Then
+                        model.Add(False, "error")
+                        model.Add(True, "newacc")
+                        model.Add("", "mensaje")
+                        model.Add("Usuario/Details/" & CStr(Session("userToSee")), "redirect")
+                        model.Add(correo, "username")
+                        model.Add(passToShow, "pass")
+                    Else
+                        model.Add(False, "error")
+                        model.Add(True, "newacc")
+                        model.Add("", "mensaje")
+                        model.Add("Home/Index", "redirect")
+                        model.Add(correo, "username")
+                        model.Add(passToShow, "pass")
+                    End If
+                End If
+
+            Catch ex As Exception
+                model.Add(True, "error")
+                model.Add(False, "newacc")
+                model.Add(ex.Message.ToString() & "--- " & ex.StackTrace.ToString(), "mensaje")
+                model.Add("", "redirect")
+            End Try
+            Session.Remove("toPublish")
+            Session.Remove("toViewProfile")
+            Session.Remove("userToSee")
+            Return (serializer.Serialize(model))
+        End Function
+
+        '
+        ' GET
+        Function fbWelcome(ByVal user As String) As ActionResult
+            Dim password As String = Request.Params("pass")
+            Dim urlTo As String = Request.Params("urlTo")
+
+            ViewBag.pass = IIf(IsNothing(password), "", password)
+            ViewBag.urlTo = IIf(IsNothing(urlTo), "", "/" & urlTo)
+
+            Return View()
+        End Function
+
 
         '
         ' POST: /Usuario/Delete/5
