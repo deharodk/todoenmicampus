@@ -7,7 +7,7 @@ End Code
 
 @Using Html.BeginForm("passRecover", "usuario", FormMethod.Post, New With {.class = "form-horizontal well", .id = "frmForgotPassword"})
     @<fieldset>
-        <legend>Coloca tu nombre de usuario y se enviarán las instrucciones para recuperar la contraseña</legend>
+        <legend>Coloca tu dirección de correo electrónico y se te enviarán las instrucciones para recuperar tu contraseña</legend>
 
         <div class="control-group">
             @Html.Label("Nombre de usuario: ", New With {.class = "control-label"})
@@ -27,7 +27,7 @@ End Code
             <a class="close" id ="aClose">×</a>
             <h4 class="alert-heading">Alerta</h4>
             <p>
-                El usuario que proporcionas no existe o la cuenta le ha sido deshabilitada.
+                El usuario que proporcionas no existe o la cuenta te ha sido deshabilitada.
             </p>
           </div>
     End If

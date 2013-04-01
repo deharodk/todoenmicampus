@@ -5,8 +5,8 @@ End Code
 
 <h1>El correo ha sido enviado, ¡buena suerte!</h1>
 
-<p>Hemos enviado un correo a la cuenta que nos proporcionaste, sigue las instrucciones y en unos momentos podrás
-entrar de nuevo a tú cuenta de todo en mi campus, esperamos que tú proceso sea exitoso.</p>
+<p>Hemos enviado un correo a la dirección que nos proporcionaste, sigue las instrucciones y en unos momentos podrás
+entrar de nuevo a tu cuenta de todo en mi campus, esperamos que tu proceso sea exitoso.</p>
 
 <br />
 

@@ -856,6 +856,9 @@
   <ItemGroup>
     <Content Include="Views\Usuario\fbWelcome.vbhtml" />
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Home\Contacto.vbhtml" />
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

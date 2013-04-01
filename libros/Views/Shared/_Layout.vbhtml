@@ -14,7 +14,7 @@
     @Scripts.Render("~/assets/js/general.js")
     @Scripts.Render("~/assets/js/less-1.3.0.min.js")
     @Scripts.Render("~/assets/js/jquery.dataTables.js")
-    
+    @Scripts.Render("~/assets/js/analytics.js")
     @Scripts.Render("~/assets/js/wysihtml5-0.3.0.js")
     @Scripts.Render("~/assets/js/bootstrap-wysihtml5.js")
 </head>

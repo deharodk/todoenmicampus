@@ -17,7 +17,7 @@ End Code
             <a class="close" id ="aClose">×</a>
             <h4 class="alert-heading">¡Éxito!</h4>
             <p>
-                Haz actualizado la información de cuenta con éxito. :)
+                Haz actualizado la información de tu cuenta con éxito. :)
             </p>
             </div>
         End If
@@ -29,7 +29,7 @@ End Code
         <div class="control-group">
 			@Html.LabelFor(Function(model) model.nombre, New With {.class = "control-label"})
 				<div class="controls">
-					 @Html.TextBoxFor(Function(model) model.nombre, New With {.class = "input-xlarge", .id = "txtNombre", .maxlength = 255 , .placeholder = "Nombre de usuario"})
+					 @Html.TextBoxFor(Function(model) model.nombre, New With {.class = "input-xlarge", .id = "txtNombre", .maxlength = 255, .placeholder = "Nombre de usuario"})
 					<span class="help-inline">  @Html.ValidationMessageFor(Function(model) model.nombre) </span>
 				<p class="help-block"></p>
 			    </div>
@@ -57,7 +57,7 @@ End Code
         <div class="control-group">
 			@Html.LabelFor(Function(model) model.cuentaTwitter, New With {.class = "control-label"})
 				<div class="controls">
-					 @Html.TextBoxFor(Function(model) model.cuentaTwitter, New With {.class = "input-xlarge", .id = "txtCuentaTwitter", .maxlength = 255, .placeholder = "Tú cuenta de twitter (opcional)"})
+					 @Html.TextBoxFor(Function(model) model.cuentaTwitter, New With {.class = "input-xlarge", .id = "txtCuentaTwitter", .maxlength = 255, .placeholder = "Tu cuenta de twitter (opcional)"})
 					<span class="help-inline">  @Html.ValidationMessageFor(Function(model) model.cuentaTwitter) </span>
 				<p class="help-block"></p>
 			    </div>
@@ -66,7 +66,7 @@ End Code
         <div class="control-group">
 			@Html.LabelFor(Function(model) model.cuentaFB, New With {.class = "control-label"})
 				<div class="controls">
-					 @Html.TextBoxFor(Function(model) model.cuentaFB, New With {.class = "input-xlarge", .id = "txtFB", .maxlength = 255, .placeholder = "Tú cuenta de facebook (opcional)"})
+					 @Html.TextBoxFor(Function(model) model.cuentaFB, New With {.class = "input-xlarge", .id = "txtFB", .maxlength = 255, .placeholder = "Tu cuenta de facebook (opcional)"})
 					<span class="help-inline">  @Html.ValidationMessageFor(Function(model) model.cuentaFB) </span>
 				<p class="help-block"></p>
 			    </div>

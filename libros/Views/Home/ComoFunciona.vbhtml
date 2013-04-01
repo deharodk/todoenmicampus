@@ -19,9 +19,9 @@ End Code
     <div class="span4">
         <h2>Encuentra</h2>
         <p>
-            En todoenmicampus.com, puedes encontrar lo que necesitas, desde alguien que venda algún libro que ocupas, 
+            En todo en mi campus, puedes encontrar lo que necesitas, desde alguien que venda algún libro que ocupas, 
             alguien que dé asesorías en alguna materia que te vaya del nabo, o alguien que rente o comparta un cuarto para ti.
-            Todo esto es entre tú misma comunidad universitaria, cerca de ti.
+            Todo esto es entre tu misma comunidad universitaria, cerca de ti.
         </p>
     </div>
 
@@ -32,7 +32,7 @@ End Code
              ¿Eres bueno para alguna materia y piensas que puedes compartir tu conocimiento y ganar algo de dinero con eso?
              ¿Rentas o compartes cuarto pero no has encontrado roomie?
              <br />
-             ¡Entonces todoenmicampus.com es lo que buscas!
+             ¡En todo en mi campus te podemos ayudar!
         </p>
  
     </div>
@@ -40,10 +40,9 @@ End Code
     <div class="span4">
         <h2>Crea comunidad</h2>
         <p>
-            En todoenmicampus.com estamos seguros que vas a poder contactar personas que coincidan
-            con tus intereses. Estamos intentando crear la comunidad más grande dentro de tú universidad, ningún
-            otro lugar está actualmente intentando hacer lo que nosotros, tú apoyo es muy importante. Te sorprenderemos de aquí
-            en adelante, vamos a conectar cada vez más tú universidad contigo. ¡Gracias por tú apoyo!
+            En todo en mi campus estamos seguros que vas a poder contactar personas que coincidan
+            con tus intereses. Te sorprenderemos de aquí
+            en adelante porque vamos a conectar cada vez más tu universidad contigo. ¡Gracias por tu apoyo!
         </p>
 
         <p>

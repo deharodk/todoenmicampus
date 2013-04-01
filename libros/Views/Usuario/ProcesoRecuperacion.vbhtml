@@ -35,7 +35,7 @@ End Code
             <a class="close" id ="aClose">×</a>
             <h4 class="alert-heading">Alerta</h4>
             <p>
-                Lo sentimos pero, no podemos localizar tú usuario para proceder con el cambio de contraseña.
+                Lo sentimos pero, no podemos localizar tu usuario para proceder con el cambio de contraseña.
             </p>
             </div>
         End If

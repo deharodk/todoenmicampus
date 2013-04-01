@@ -7,7 +7,7 @@ End Code
 
 <h1>Dar de baja mi cuenta</h1>
 
-<h3>¿Estás seguro que desdeas dar de baja tú cuenta?</h3>
+<h3>¿Estás seguro que desdeas dar de baja tu cuenta?</h3>
 <fieldset>
     <legend>Si lo haces no podrás seguir publicando anuncios</legend>
 
@@ -24,6 +24,6 @@ End Code
 @Using Html.BeginForm()
     @<p>
         <input type="submit" value="Si quiero darla de baja"  class = "btn btn-danger"/> |
-        @Html.ActionLink("Olvidalo, cambié de opinión", "Edit", New With {.id = Model.idContacto}, New With {.class = "btn btn-success"})
+        @Html.ActionLink("Olvídalo, cambié de opinión", "Edit", New With {.id = Model.idContacto}, New With {.class = "btn btn-success"})
     </p>
 End Using

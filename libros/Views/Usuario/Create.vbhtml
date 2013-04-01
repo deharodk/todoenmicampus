@@ -15,7 +15,7 @@ End Code
         <div class="control-group">
             @Html.LabelFor(Function(model) model.email, New With {.class = "control-label"})
             <div class="controls">
-                @Html.TextBoxFor(Function(model) model.email, New With {.class = "input-xlarge", .id = "txtEmail", .placeholder = "Nombre de usuario", .maxlength = 255})
+                @Html.TextBoxFor(Function(model) model.email, New With {.class = "input-xlarge", .id = "txtEmail", .placeholder = "Nombre de usuario (correo electrónico)", .maxlength = 255})
                 @Html.ValidationMessageFor(Function(model) model.email)
             </div>
         </div>
@@ -24,7 +24,7 @@ End Code
          <div class="control-group">
             @Html.LabelFor(Function(model) model.nombre, New With {.class = "control-label"})
             <div class="controls">
-                @Html.TextBoxFor(Function(model) model.nombre, New With {.class = "input-xlarge", .id = "txtNombre", .placeholder = "Tú nombre", .maxlength = 255})
+                @Html.TextBoxFor(Function(model) model.nombre, New With {.class = "input-xlarge", .id = "txtNombre", .placeholder = "Tu nombre", .maxlength = 255})
                 @Html.ValidationMessageFor(Function(model) model.nombre)
             </div>
         </div>
@@ -41,7 +41,7 @@ End Code
         <div class="control-group">
             @Html.LabelFor(Function(model) model.cuentaTwitter, New With {.class = "control-label"})
             <div class="controls">
-                @Html.TextBoxFor(Function(model) model.cuentaTwitter, New With {.class = "input-xlarge", .id = "txtCuentaTwitter", .placeholder = "Tú cuenta de twitter (opcional)", .maxlength = 255})
+                @Html.TextBoxFor(Function(model) model.cuentaTwitter, New With {.class = "input-xlarge", .id = "txtCuentaTwitter", .placeholder = "Tu cuenta de twitter (opcional)", .maxlength = 255})
                 @Html.ValidationMessageFor(Function(model) model.cuentaTwitter)
             </div>
         </div>
@@ -49,7 +49,7 @@ End Code
         <div class="control-group">
             @Html.LabelFor(Function(model) model.cuentaFB, New With {.class = "control-label"})
             <div class="controls">
-                @Html.TextBoxFor(Function(model) model.cuentaFB, New With {.class = "input-xlarge", .id = "txtFB", .placeholder = "Tú cuenta de facebook (opcional)", .maxlength = 255})
+                @Html.TextBoxFor(Function(model) model.cuentaFB, New With {.class = "input-xlarge", .id = "txtFB", .placeholder = "Tu cuenta de facebook (opcional)", .maxlength = 255})
                 @Html.ValidationMessageFor(Function(model) model.cuentaFB)
             </div>
         </div>
@@ -65,7 +65,7 @@ End Code
         <div class="control-group">
             @Html.LabelFor(Function(model) model.pass, New With {.class = "control-label"})
             <div class="controls">
-                @Html.PasswordFor(Function(model) model.pass, New With {.class = "input-xlarge", .id = "txtPass", .placeholder = "Tú contraseña (mínimo 8 caracteres)", .maxlength = 255})
+                @Html.PasswordFor(Function(model) model.pass, New With {.class = "input-xlarge", .id = "txtPass", .placeholder = "Tu contraseña (mínimo 8 caracteres)", .maxlength = 255})
                 @Html.ValidationMessageFor(Function(model) model.pass)
             </div>
         </div>

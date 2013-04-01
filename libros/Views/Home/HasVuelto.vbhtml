@@ -5,7 +5,7 @@ End Code
 
 <h1>¡Un gusto tenerte de vuelta!</h1>
 
-<p>Nos da gusto que hallas ingresado nuevamente a tú cuenta, esperamos que todo en mi campus te siga siendo
-de utilidad. Puedes <a href = "/Anuncios/Create">publicar anuncios</a> ó <a href = "/Home/Index">ver anuncios publicados</a></p>
+<p>Nos da gusto que hallas ingresado nuevamente a tu cuenta, esperamos que todo en mi campus te siga siendo
+de utilidad y tengas una experiencia amena. Puedes <a href = "/Anuncios/Create">publicar anuncios</a> ó <a href = "/Home/Index">ver anuncios publicados</a></p>
 
 <center><img alt = "happy" src  = "../../assets/images/smileFace.png" /></center>

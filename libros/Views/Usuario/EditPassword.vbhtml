@@ -17,7 +17,7 @@ End Code
             <a class="close" id ="aClose">×</a>
             <h4 class="alert-heading">¡Éxito!</h4>
             <p>
-                Haz actualizado tú contraseña con éxito. :)
+                Haz actualizado tu contraseña con éxito. :)
             </p>
             </div>
         End If
@@ -27,7 +27,7 @@ End Code
             <a class="close" id ="aClose">×</a>
             <h4 class="alert-heading">Alerta</h4>
             <p>
-                Por favor proporciona correctamente tú actual password.
+                Por favor proporciona correctamente tu actual password.
             </p>
             </div>
         End If

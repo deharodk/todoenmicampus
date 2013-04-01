@@ -16,6 +16,9 @@ Namespace libros
         Function QuienesSomos() As ActionResult
             Return View()
         End Function
+        Function Contacto() As ActionResult
+            Return View()
+        End Function
 
         Function Borrado() As ActionResult
             Return View()
