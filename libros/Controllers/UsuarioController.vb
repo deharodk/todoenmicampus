@@ -43,6 +43,7 @@ Namespace libros
                     Return RedirectToAction("Login", "Usuario")
                 End If
             End If
+            ViewBag.idUserToSee = id
 
             Return View(contacto)
         End Function
