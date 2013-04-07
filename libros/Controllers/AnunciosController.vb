@@ -142,6 +142,7 @@ Namespace libros
             anuncio.estatus = True
             anuncio.fechaCreacion = Date.Now()
             anuncio.idContacto = idUsuario
+            anuncio.titulo = Char.ToUpper(anuncio.titulo(0)) & anuncio.titulo.ToLower.Substring(1)
 
             If anuncio.idFormaPago = 0 Then
                 anuncio.idFormaPago = 1
@@ -202,6 +203,8 @@ Namespace libros
             If anuncio.idFormaPago = 0 Then
                 anuncio.idFormaPago = 1
             End If
+
+            anuncio.titulo = Char.ToUpper(anuncio.titulo(0)) & anuncio.titulo.ToLower.Substring(1)
 
             If ModelState.IsValid Then
                 db.Entry(anuncio).State = EntityState.Modified

@@ -31,7 +31,6 @@ End code
             <ul class="pull-left nav">
              <li class="divider-vertical menuItem"></li>
 
-
              <li class = "menuItem"><a href="/Anuncios/Conocimiento">Conocimiento</a></li>
              <li class="divider-vertical menuItem"></li>
 
@@ -41,7 +40,7 @@ End code
              <li class = "menuItem"><a href = "/Anuncios/Cuartos">Roomies</a></li>
              <li class="divider-vertical menuItem"></li>
 
-             <li class = "menuItem"><a href="/Anuncios/Create"><i class="icon-arrow-right"></i>¡Publicar anuncio!</a></li>
+             <li class = "menuItem"><a href="/Anuncios/Create">¡Publicar anuncio!</a></li>
              <li class="divider-vertical menuItem"></li>
             </ul>
       </div>
@@ -65,7 +64,8 @@ End code
             </ul>
             Else
            @<ul class="pull-right nav">
-              <li class="dropdown">
+              <li class="divider-vertical menuItem"></li>
+              <li class="dropdown menuItem">
               <a href ='/Usuario/login' class="dropdown-toggle" data-toggle="dropdown">
                 <i class="icon-off"></i> Conectarme
               </a>

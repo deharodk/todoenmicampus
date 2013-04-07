@@ -1,7 +1,7 @@
 body{background:#f5f5f5}
 #main-page{margin-top:60px;border-top:2px solid #fff;}
-#main-page .intro{margin:50px 0}
-#footer{color:#888;text-align:center;margin:100px 0 50px 0}
+#main-page .intro{margin:30px 0}
+#{color:#888;text-align:center;margin:100px 0 50px 0}
 a{color:#0096c8;-webkit-transition:color .1s linear;-moz-transition:color .1s linear;-o-transition:color .1s linear;-ms-transition:color .1s linear;transition:color .1s linear;text-decoration:none}
 a:hover{color:#006b8f;text-decoration:none}
 h1{color:#555;text-shadow:1px 1px 0 #fff;font-family:Sintony;font-weight:700;font-size:2.5em}
@@ -29,16 +29,19 @@ hr{margin:80px 0 50px 0}
 .box h3{font-size:1em;line-height:120%;}
 .box h3 span{color:#888}
 .box .img{height:180px;background:#7dbad4;text-align:center;color:#fff}
-.box .details{padding:10px}
+.box .details{padding:10px; height: 265px; position: relative;}
 .box .type{color:#fff;text-align:center;margin:0 0 0 -10px !important;-webkit-border-top-right-radius:5px;border-top-right-radius:5px;-webkit-border-bottom-right-radius:5px;border-bottom-right-radius:5px;}
-.box .price{font-size:1.2em;color:#118c40;font-weight:bold}
+.box .price{font-size:1.2em;color:#118c40;font-weight:bold;margin-bottom: 5px;}
 .box .type-1{background:#d69813}
 .box .type-2{background:#1388d6}
 .box .type-3{background:#35b566}
+.box .type-else{background:#000000}
 .box .footer{width:100%;}
 .box .footer .row-fluid .span6{height:40px;line-height:40px}
+.box .footer .row-fluid .spanCategory{height:70%;line-height:40px}
 .box:hover{-webkit-box-shadow:0 0 10px rgba(0,0,0,0.4);box-shadow:0 0 10px rgba(0,0,0,0.4)}
 #menu_container_nav{padding-right: 20px; padding-left: 20px;}
 .vam{vertical-align: middle;}
 .topPadding{padding-top: 30px;}
+.vab{position:absolute;bottom:10px;left:0;}
 

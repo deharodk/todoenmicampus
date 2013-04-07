@@ -35,3 +35,4 @@ C:\Users\luis.deharo\documents\visual studio 2010\Projects\libros\libros\obj\Deb
 C:\Users\luis.deharo\documents\visual studio 2010\Projects\libros\libros\obj\Debug\libros.pdb
 C:\Users\luis.deharo\documents\visual studio 2010\Projects\libros\libros\bin\EntityFramework.dll
 C:\Users\luis.deharo\documents\visual studio 2010\Projects\libros\libros\bin\EntityFramework.xml
+C:\Users\luis.deharo\documents\visual studio 2010\Projects\libros\libros\bin\HtmlAgilityPack.dll
