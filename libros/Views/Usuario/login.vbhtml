@@ -35,13 +35,14 @@ End Code
         <div class = "fbLgn">
             <b>También puedes conectarte con tu cuenta de Facebook <br /></b> <a id = "fbLogin" href = "javascript:void(0);"><img alt = "Login with facebook" src  = "../../assets/images/fb_login_icon.gif" /></a> <!--<div class="fb-login-button" data-show-faces="false" data-width="200" data-max-rows="1"></div>-->
         </div>
+        <br />
 
         @If ViewBag.logFails = True Then
            @<div class="alert alert-info" id ="lblError">
             <a class="close" id ="aClose">×</a>
             <h4 class="alert-heading">Alerta</h4>
             <p>Las credenciales con que intentas accesar no son válidas, si no recuerdas tu password por favor haz click <a href = "/Usuario/ForgotPassword" class = "anclaLogin">aquí.</a>
-                si no posees una cuenta <a href = "/Usuario/Create/" class = "anclaLogin">registrate aquí</a>
+                si no posees una cuenta <a href = "/Usuario/Create/" class = "anclaLogin">registrate aquí</a> o conéctate mediante facebook.
             </p>
             </div>
         End If

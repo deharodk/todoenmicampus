@@ -16,64 +16,65 @@
         
     End Try
 End code    
-<div class="navbar navbar-fixed-top">
+
+ <div class="navbar navbar-fixed-top navbar-inverse">
       <div class="navbar-inner">
-        <div class="container-fluid">
-          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </a>
-          <a class="brand" href="/Home/">Inicio</a>
-          <div class="btn-group pull-right">
-          @If conectado = True Then
-            @<a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
-              <i class="icon-user"></i>
-              @email
-              <span class="caret"></span>
-            </a>
-              @<ul class="dropdown-menu">
-              <li>
-                <a href = "/Usuario/Edit/@idContacto"><i class="icon-edit"></i> mi cuenta</a>
-              </li>
-              <li>
-                <a href = "/Anuncios/MisAnuncios/@idContacto"><i class="icon-inbox"></i> mis anuncios</a>
-              </li>
-              <li class="divider"></li>
-              <li><a onclick="logoutUsuario()" href="javascript:void(0);"><i class="icon-off"></i> cerrar sesión</a></li>
+        <div id = "menu_container_nav">
+          <button type="button" data-toggle="collapse" data-target=".nav-collapse" class="btn btn-navbar">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          </button>
+          <a href="/Home/" class="brand">TodoEnMiCampus</a>
+
+      <div class="nav-collapse collapse">
+            <ul class="pull-left nav">
+             <li class="divider-vertical menuItem"></li>
+
+
+             <li class = "menuItem"><a href="/Anuncios/Conocimiento">Conocimiento</a></li>
+             <li class="divider-vertical menuItem"></li>
+
+             <li class = "menuItem"><a href="/Anuncios/LibrosMaterial">Libros/Material académico</a></li>
+             <li class="divider-vertical menuItem"></li>
+
+             <li class = "menuItem"><a href = "/Anuncios/Cuartos">Roomies</a></li>
+             <li class="divider-vertical menuItem"></li>
+
+             <li class = "menuItem"><a href="/Anuncios/Create"><i class="icon-arrow-right"></i>¡Publicar anuncio!</a></li>
+             <li class="divider-vertical menuItem"></li>
             </ul>
-          Else
-             @<a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
-               <i class="icon-off"></i>   Conectarme
-              <span class="caret"></span>
-            </a>
-              @<ul class="dropdown-menu">
-              <li>
-                  <a href="/Usuario/login">
-                  <i class="icon-play-circle"></i> iniciar sesión
+      </div>
+
+          <div class="nav-collapse collapse">
+            @If conectado = True Then
+            @<ul class="pull-right nav">
+              <li class="divider-vertical menuItem"></li>
+              <li class="dropdown menuItem">
+                  <a href ='javascript:void(0);' class="dropdown-toggle" data-toggle="dropdown">
+                     <i class="icon-user"></i> @email
+                    <b class="caret vam"></b>
                   </a>
-              </li>
-
-              <li>
-                <a href="/Usuario/Create">
-                <i class="icon-plus"></i> registrarme
-                </a>
-              </li>
-
+                  <ul class="dropdown-menu">
+                    <li><a href="/Usuario/Edit/@idContacto"><i class="icon-edit"></i> mi cuenta</a></li>
+                    <li><a href="/Anuncios/MisAnuncios/@idContacto"><i class="icon-inbox"></i> mis anuncios</a></li>
+                    <li class="divider"></li>
+                    <li><a onclick="logoutUsuario()" href="javascript:void(0);"><i class="icon-off"></i> cerrar sesión</a></li>
+                  </ul>
+             </li>
             </ul>
-          End If   
-          </div>
-          <div class="nav-collapse"> 
-            <ul class="nav">
-              <li><a href="/Anuncios/Conocimiento">Conocimiento</a></li>
-              <li><a href="/Anuncios/LibrosMaterial">Libros/Material académico</a></li>
-              <li><a href = "/Anuncios/Cuartos">Roomies</a></li>
-              <li><a href="/Anuncios/Create"><i class="icon-arrow-right"></i>¡Publicar anuncio!</a></li>
-              <li><a href="/Home/ComoFunciona"><i class="icon-star"></i>¿Cómo funciona?</a></li>
+            Else
+           @<ul class="pull-right nav">
+              <li class="dropdown">
+              <a href ='/Usuario/login' class="dropdown-toggle" data-toggle="dropdown">
+                <i class="icon-off"></i> Conectarme
+              </a>
+              </li>
             </ul>
+            End If
+            
           </div>
+
         </div>
       </div>
     </div>
-    <br />
-    <br />

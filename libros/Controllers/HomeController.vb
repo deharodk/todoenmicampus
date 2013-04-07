@@ -10,6 +10,7 @@ Namespace libros
 
         Function Index() As ActionResult
             Dim anuncios = db.Anuncios.Include(Function(a) a.Contacto).Include(Function(a) a.TipoAnuncio).Include(Function(a) a.FormaPago).Where(Function(a) a.estatus = True).OrderBy(Function(a) a.fechaCreacion).Take(100).OrderByDescending(Function(a) a.idAnuncio)
+            ViewBag.isHome = True
             Return View(anuncios.ToList())
         End Function
 

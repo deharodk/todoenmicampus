@@ -2,7 +2,9 @@
 <html>
 <head>
     <title>@ViewBag.Title</title>
+    <link href="http://fonts.googleapis.com/css?family=Sintony:400,700|Rambla" rel="stylesheet" type="text/css" />
     @Styles.Render("~/assets/css/bootstrap.css")
+    @Styles.Render("~/assets/css/main.css")
     @Styles.Render("~/assets/css/dataTables.css")
     @Styles.Render("~/assets/css/utils.css")
     @Styles.Render("~/assets/css/bootstrap-wysihtml5.css")
@@ -20,7 +22,7 @@
 </head>
 <body>
     @Html.Partial("_menu")
-    <div class = "container">
+    <div class = "container" id="main-page">
     @RenderBody()
     @RenderSection("scripts", False)
     @Html.Partial("_footer")

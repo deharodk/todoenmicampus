@@ -34,19 +34,25 @@ Namespace libros
         Function Conocimiento() As ActionResult
             Dim estatus() As Integer = {1, 2}
             Dim anuncios = db.Anuncios.Include(Function(a) a.Contacto).Include(Function(a) a.TipoAnuncio).Include(Function(a) a.FormaPago).Where(Function(a) a.estatus = True And estatus.Contains(a.idTipoAnuncio)).OrderBy(Function(a) a.fechaCreacion)
-            Return View(anuncios.ToList())
+            ViewBag.headerAnuncios = "Anuncios de conocimiento"
+            ViewBag.isHome = False
+            Return View("../Home/Index", anuncios.ToList())
         End Function
 
         Function LibrosMaterial() As ActionResult
             Dim estatus() As Integer = {3, 4}
             Dim anuncios = db.Anuncios.Include(Function(a) a.Contacto).Include(Function(a) a.TipoAnuncio).Include(Function(a) a.FormaPago).Where(Function(a) a.estatus = True And estatus.Contains(a.idTipoAnuncio)).OrderBy(Function(a) a.fechaCreacion)
-            Return View(anuncios.ToList())
+            ViewBag.headerAnuncios = "Anuncios de libros/material académico"
+            ViewBag.isHome = False
+            Return View("../Home/Index", anuncios.ToList())
         End Function
 
         Function Cuartos() As ActionResult
             Dim estatus() As Integer = {5, 6}
             Dim anuncios = db.Anuncios.Include(Function(a) a.Contacto).Include(Function(a) a.TipoAnuncio).Include(Function(a) a.FormaPago).Where(Function(a) a.estatus = True And estatus.Contains(a.idTipoAnuncio)).OrderBy(Function(a) a.fechaCreacion)
-            Return View(anuncios.ToList())
+            ViewBag.headerAnuncios = "Anuncios de roomies/cuartos"
+            ViewBag.isHome = False
+            Return View("../Home/Index", anuncios.ToList())
         End Function
 
         '
@@ -57,7 +63,17 @@ Namespace libros
             If IsNothing(anuncios) Then
                 Return HttpNotFound()
             End If
-            Return View(anuncios.ToList())
+            Select Case id
+                Case 1, 2
+                    ViewBag.headerAnuncios = "Anuncios de conocimiento"
+                Case 3, 4
+                    ViewBag.headerAnuncios = "Anuncios de libros/material académico"
+                Case 5, 6
+                    ViewBag.headerAnuncios = "Anuncios de roomies/cuartos"
+            End Select
+
+            ViewBag.isHome = False
+            Return View("../Home/Index", anuncios.ToList())
         End Function
 
         '

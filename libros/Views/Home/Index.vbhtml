@@ -5,7 +5,17 @@
     Layout = "~/Views/Shared/_Layout.vbhtml"
 End Code
 
-<h1>Últimos anuncios publicados</h1>
+<div class="row intro">
+    <div class="span12 align-center">
+        @If ViewBag.isHome = True Then
+            @<h1>Encuentra, ofrece, comparte y crea comunidad.</h1>
+            @<h2>Conéctate con tu campus <a href="/Home/ComoFunciona">¿Cómo funciona?</a></h2>
+        Else
+            @<h1>Encuentra, ofrece, comparte y crea comunidad.</h1>
+            @<h2>@ViewBag.headerAnuncios</h2>
+        End If
+    </div>
+</div>
 
 <div class = "floatRight">
     <a href="https://twitter.com/todoenmicampus" class="twitter-follow-button" data-show-count="false">Síguenos</a>

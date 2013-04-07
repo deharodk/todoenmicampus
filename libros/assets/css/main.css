@@ -1,0 +1,44 @@
+body{background:#f5f5f5}
+#main-page{margin-top:60px;border-top:2px solid #fff;}
+#main-page .intro{margin:50px 0}
+#footer{color:#888;text-align:center;margin:100px 0 50px 0}
+a{color:#0096c8;-webkit-transition:color .1s linear;-moz-transition:color .1s linear;-o-transition:color .1s linear;-ms-transition:color .1s linear;transition:color .1s linear;text-decoration:none}
+a:hover{color:#006b8f;text-decoration:none}
+h1{color:#555;text-shadow:1px 1px 0 #fff;font-family:Sintony;font-weight:700;font-size:2.5em}
+h2{color:#777;text-shadow:1px 1px 0 #fff;font-family:Sintony;font-weight:400;font-size:2em}
+hr{margin:80px 0 50px 0}
+.align-left{text-align:left}
+.align-center{text-align:center}
+.align-right{text-align:right}
+.readmore{font-size:1.2em;line-height:60px}
+.brand{width:160px;height:26px;overflow:hidden;color:#fff !important;line-height:40px;font-family:Rambla !important;font-weight:bold !important;font-size:2.4em;text-shadow:1px 0 #4a9fc3,0 1px #4a9fc3,1px 0 #4a9fc3,0 -1px #4a9fc3,2px 2px 6px rgba(0,0,0,0.2) !important}
+.navbar-inverse{height:60px;}
+.navbar-inverse .navbar-inner{background:#7dbad4;background:-webkit-gradient(linear, left top, left bottom, color-stop(0, #7dbad4), color-stop(1, #8ac1d8));background:-webkit-linear-gradient(top, #7dbad4 0%, #8ac1d8 100%);background:-moz-linear-gradient(top, #7dbad4 0%, #8ac1d8 100%);background:-o-linear-gradient(top, #7dbad4 0%, #8ac1d8 100%);background:-ms-linear-gradient(top, #7dbad4 0%, #8ac1d8 100%);background:linear-gradient(top, #7dbad4 0%, #8ac1d8 100%);height:60px;border-color:#64adcc}
+.navbar-inverse .divider-vertical{border-left-color:#64adcc;border-right-color:#97c8dd}
+.navbar-inverse .transparent{border-color:#7dbad4}
+.navbar-inverse .nav li{position:relative}
+.navbar-inverse .nav,.navbar-inverse .nav .menuItem{height:60px;line-height:40px}
+.navbar-inverse .nav > li > a{color:#fff;text-shadow:-1px -1px 1px rgba(0,0,0,0.1);-webkit-transition:background .2s linear;-moz-transition:background .2s linear;-o-transition:background .2s linear;-ms-transition:background .2s linear;transition:background .2s linear;position:relative;margin:0 -10px;text-align:center}
+.navbar-inverse .nav > li > a:focus,.navbar-inverse .nav > li > a:hover{background:#2a657f;color:#fff;text-shadow:-1px -1px 1px rgba(0,0,0,0.1)}
+.navbar-inverse .input-append{margin:7px 0 0 0;}
+.navbar-inverse .input-append input{border:none;height:26px;border-left:1px solid #64adcc;border-top:1px solid #64adcc;border-bottom:1px solid #64adcc;width:100px;-webkit-transition:width .1s linear;-moz-transition:width .1s linear;-o-transition:width .1s linear;-ms-transition:width .1s linear;transition:width .1s linear;-webkit-box-shadow:0 0 10px rgba(255,255,255,0.3);box-shadow:0 0 10px rgba(255,255,255,0.3);}
+.navbar-inverse .input-append input:focus,.navbar-inverse .input-append input:hover{-webkit-box-shadow:0 0 10px rgba(255,255,255,0.3);box-shadow:0 0 10px rgba(255,255,255,0.3);width:190px}
+.navbar-inverse .input-append button{border:none;height:36px;color:#2a657f;font-weight:bold;border-right:1px solid #64adcc;border-top:1px solid #64adcc;border-bottom:1px solid #64adcc;border-left:2px solid #64adcc !important;-webkit-box-shadow:0 0 10px rgba(255,255,255,0.3);box-shadow:0 0 10px rgba(255,255,255,0.3)}
+.box{display:block;-webkit-border-radius:6px;border-radius:6px;background:#fff;overflow:hidden;-webkit-box-shadow:0 0 5px rgba(0,0,0,0.1);box-shadow:0 0 5px rgba(0,0,0,0.1);}
+.box h2{font-size:1.6em;line-height:120%}
+.box h3{font-size:1em;line-height:120%;}
+.box h3 span{color:#888}
+.box .img{height:180px;background:#7dbad4;text-align:center;color:#fff}
+.box .details{padding:10px}
+.box .type{color:#fff;text-align:center;margin:0 0 0 -10px !important;-webkit-border-top-right-radius:5px;border-top-right-radius:5px;-webkit-border-bottom-right-radius:5px;border-bottom-right-radius:5px;}
+.box .price{font-size:1.2em;color:#118c40;font-weight:bold}
+.box .type-1{background:#d69813}
+.box .type-2{background:#1388d6}
+.box .type-3{background:#35b566}
+.box .footer{width:100%;}
+.box .footer .row-fluid .span6{height:40px;line-height:40px}
+.box:hover{-webkit-box-shadow:0 0 10px rgba(0,0,0,0.4);box-shadow:0 0 10px rgba(0,0,0,0.4)}
+#menu_container_nav{padding-right: 20px; padding-left: 20px;}
+.vam{vertical-align: middle;}
+.topPadding{padding-top: 30px;}
+
