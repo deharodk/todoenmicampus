@@ -25,7 +25,7 @@ End code
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
           </button>
-          <a href="/Home/" class="brand">TodoEnMiCampus</a>
+          <a href="/Home/" class="brand">TEMC</a>
 
       <div class="nav-collapse collapse">
             <ul class="pull-left nav">
@@ -38,6 +38,12 @@ End code
              <li class="divider-vertical menuItem"></li>
 
              <li class = "menuItem"><a href = "/Anuncios/Cuartos">Roomies</a></li>
+             <li class="divider-vertical menuItem"></li>
+
+             <li class = "menuItem"><a href="/Anuncios/Trabajo">Trabajo/prácticas</a></li>
+             <li class="divider-vertical menuItem"></li>
+
+             <li class = "menuItem"><a href = "/Anuncios/EquisCosa">Equis cosa</a></li>
              <li class="divider-vertical menuItem"></li>
 
              <li class = "menuItem"><a href="/Anuncios/Create">¡Publicar anuncio!</a></li>

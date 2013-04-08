@@ -55,6 +55,22 @@ Namespace libros
             Return View("../Home/Index", anuncios.ToList())
         End Function
 
+        Function Trabajo() As ActionResult
+            Dim estatus() As Integer = {7, 8}
+            Dim anuncios = db.Anuncios.Include(Function(a) a.Contacto).Include(Function(a) a.TipoAnuncio).Include(Function(a) a.FormaPago).Where(Function(a) a.estatus = True And estatus.Contains(a.idTipoAnuncio)).OrderBy(Function(a) a.fechaCreacion)
+            ViewBag.headerAnuncios = "Anuncios de trabajo/prácticas"
+            ViewBag.isHome = False
+            Return View("../Home/Index", anuncios.ToList())
+        End Function
+
+        Function EquisCosa() As ActionResult
+            Dim estatus() As Integer = {9, 10}
+            Dim anuncios = db.Anuncios.Include(Function(a) a.Contacto).Include(Function(a) a.TipoAnuncio).Include(Function(a) a.FormaPago).Where(Function(a) a.estatus = True And estatus.Contains(a.idTipoAnuncio)).OrderBy(Function(a) a.fechaCreacion)
+            ViewBag.headerAnuncios = "Anuncios de equis cosa"
+            ViewBag.isHome = False
+            Return View("../Home/Index", anuncios.ToList())
+        End Function
+
         '
         ' GET: /Anuncios/Categoria/5
 
@@ -70,6 +86,11 @@ Namespace libros
                     ViewBag.headerAnuncios = "Anuncios de libros/material académico"
                 Case 5, 6
                     ViewBag.headerAnuncios = "Anuncios de roomies/cuartos"
+                Case 7, 8
+                    ViewBag.headerAnuncios = "Anuncios de trabajo/prácticas"
+                Case 9, 10
+                    ViewBag.headerAnuncios = "Anuncios de equis cosa"
+                Case Else
             End Select
 
             ViewBag.isHome = False

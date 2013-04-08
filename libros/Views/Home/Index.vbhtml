@@ -19,7 +19,7 @@ End Code
     <div class="span12 align-center">
         @If ViewBag.isHome = True Then
             @<h1>Encuentra, ofrece, comparte y crea comunidad.</h1>
-            @<h2>Conéctate con tu campus <a href="/Home/ComoFunciona">¿Cómo funciona?</a></h2>
+            @<h2>Conéctate con tu campus, <a href="/Home/ComoFunciona">¿Cómo funciona?</a></h2>
         Else
             @<h1>Encuentra, ofrece, comparte y crea comunidad.</h1>
             @<h2>@ViewBag.headerAnuncios</h2>
@@ -52,6 +52,10 @@ End Code
             categoria = "type-3"
         Case 5, 6
             categoria = "type-2"
+        Case 7, 8
+            categoria = "type-4"
+        Case 9, 10
+            categoria = "type-5"
         Case Else
             categoria = "type-else"
     End Select
@@ -61,9 +65,9 @@ End Code
             <a href = "/Anuncios/Details/@currentItem.idAnuncio">
                 <div class="img">
                     @If Not srcImg Is Nothing Then
-                            @<img src = "@srcImg" alt = "Imagen del anuncio" class = "img"/>
+                            @<img src = "@srcImg" alt = "Imagen del anuncio" class = "imgAnuncio"/>
                         Else
-                            @<img src = "" alt = "No hay imagen para mostrar"/>
+                            @<img src = "../../assets/images/no_disponible.gif" class = "imgAnuncio" alt = "No hay imagen para mostrar"/>
                         End If
                 </div>
                 <div class="details">
@@ -73,7 +77,7 @@ End Code
                     <div class="price align-right">$ @Math.Round(currentItem.precioTotal, 2)</div>
                     <div class="footer vab"> 
                         <div class="row-fluid">
-                           <a href = '/Anuncios/Categoria/@currentItem.idTipoAnuncio'> <div class="spanCategory type @categoria align-center">@currentItem.TipoAnuncio.nombre</div></a>
+                           <a href = '/Anuncios/Categoria/@currentItem.idTipoAnuncio'> <div class="spanCategory type @categoria align-center"><b>@currentItem.TipoAnuncio.nombre</b></div></a>
                         </div>
                     </div>
                 </div>

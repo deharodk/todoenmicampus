@@ -11,7 +11,7 @@ hr{margin:80px 0 50px 0}
 .align-center{text-align:center}
 .align-right{text-align:right}
 .readmore{font-size:1.2em;line-height:60px}
-.brand{width:160px;height:26px;overflow:hidden;color:#fff !important;line-height:40px;font-family:Rambla !important;font-weight:bold !important;font-size:2.4em;text-shadow:1px 0 #4a9fc3,0 1px #4a9fc3,1px 0 #4a9fc3,0 -1px #4a9fc3,2px 2px 6px rgba(0,0,0,0.2) !important}
+.brand{width:90px;height:26px;overflow:hidden;color:#fff !important;line-height:40px;font-family:Rambla !important;font-weight:bold !important;font-size:2.4em;text-shadow:1px 0 #4a9fc3,0 1px #4a9fc3,1px 0 #4a9fc3,0 -1px #4a9fc3,2px 2px 6px rgba(0,0,0,0.2) !important}
 .navbar-inverse{height:60px;}
 .navbar-inverse .navbar-inner{background:#7dbad4;background:-webkit-gradient(linear, left top, left bottom, color-stop(0, #7dbad4), color-stop(1, #8ac1d8));background:-webkit-linear-gradient(top, #7dbad4 0%, #8ac1d8 100%);background:-moz-linear-gradient(top, #7dbad4 0%, #8ac1d8 100%);background:-o-linear-gradient(top, #7dbad4 0%, #8ac1d8 100%);background:-ms-linear-gradient(top, #7dbad4 0%, #8ac1d8 100%);background:linear-gradient(top, #7dbad4 0%, #8ac1d8 100%);height:60px;border-color:#64adcc}
 .navbar-inverse .divider-vertical{border-left-color:#64adcc;border-right-color:#97c8dd}
@@ -35,13 +35,16 @@ hr{margin:80px 0 50px 0}
 .box .type-1{background:#d69813}
 .box .type-2{background:#1388d6}
 .box .type-3{background:#35b566}
+.box .type-4{background:#D53164}
+.box .type-5{background:#606060}
 .box .type-else{background:#000000}
 .box .footer{width:100%;}
 .box .footer .row-fluid .span6{height:40px;line-height:40px}
-.box .footer .row-fluid .spanCategory{height:70%;line-height:40px}
+.box .footer .row-fluid .spanCategory{height:70%;line-height:40px;}
 .box:hover{-webkit-box-shadow:0 0 10px rgba(0,0,0,0.4);box-shadow:0 0 10px rgba(0,0,0,0.4)}
 #menu_container_nav{padding-right: 20px; padding-left: 20px;}
 .vam{vertical-align: middle;}
 .topPadding{padding-top: 30px;}
 .vab{position:absolute;bottom:10px;left:0;}
+.imgAnuncio{width:260px;height:180px;background:#7dbad4;text-align:center;color:#fff}
 

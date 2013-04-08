@@ -30,7 +30,13 @@
         var formaPago = $("#idFormaPago");
         var precioTotal = $("#txtPrecioTotal");
 
-        if (tipoAnuncio.val().trim() == 1 || tipoAnuncio.val().trim() == 3 || tipoAnuncio.val().trim() == 5) {
+        if (
+            tipoAnuncio.val().trim() == 1 ||
+            tipoAnuncio.val().trim() == 3 ||
+            tipoAnuncio.val().trim() == 5 ||
+            tipoAnuncio.val().trim() == 7 ||
+            tipoAnuncio.val().trim() == 9
+            ) {
             formaPago.attr("disabled", true);
             precioTotal.attr("disabled", true).val(0);
             formaPago.val(1).attr('selected', true);

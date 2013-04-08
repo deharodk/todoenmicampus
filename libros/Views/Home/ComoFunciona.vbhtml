@@ -20,7 +20,8 @@ End Code
         <h2>Encuentra</h2>
         <p>
             En todo en mi campus, puedes encontrar lo que necesitas, desde alguien que venda algún libro que ocupas, 
-            alguien que dé asesorías en alguna materia que te vaya del nabo, o alguien que rente o comparta un cuarto para ti.
+            alguien que dé asesorías en alguna materia que te vaya del nabo, alguien que rente o comparta un cuarto para ti, alguien que
+            ofezca la chamba que estás esperando o alguien que venda o compre equis cosa.
             Todo esto es entre tu misma comunidad universitaria, cerca de ti.
         </p>
     </div>
@@ -28,7 +29,8 @@ End Code
     <div class="span4">
         <h2>Ofrece/Comparte</h2>
         <p>
-             ¿Tienes libros que ya no uses y desees vender? 
+             ¿Tienes libros o equis cosa que ya no uses y desees vender? 
+             ¿Andas buscando chamba o prácticas?
              ¿Eres bueno para alguna materia y piensas que puedes compartir tu conocimiento y ganar algo de dinero con eso?
              ¿Rentas o compartes cuarto pero no has encontrado roomie?
              <br />
