@@ -43,8 +43,9 @@ hr{margin:80px 0 50px 0}
 .box .footer .row-fluid .spanCategory{height:70%;line-height:40px;}
 .box:hover{-webkit-box-shadow:0 0 10px rgba(0,0,0,0.4);box-shadow:0 0 10px rgba(0,0,0,0.4)}
 #menu_container_nav{padding-right: 20px; padding-left: 20px;}
-.vam{vertical-align: middle;}
+.vam{vertical-align: middle;padding-bottom:10px;}
 .topPadding{padding-top: 30px;}
 .vab{position:absolute;bottom:10px;left:0;}
 .imgAnuncio{width:260px;height:180px;background:#7dbad4;text-align:center;color:#fff}
-
+.btn-primary{color:#ffffff;text-shadow:0 -1px 0 rgba(0, 0, 0, 0.25);background-color:#77a2d0;background-image:-moz-linear-gradient(top, #8eb2d8, #558bc4);background-image:-webkit-gradient(linear, 0 0, 0 100%, from(#8eb2d8), to(#558bc4));background-image:-webkit-linear-gradient(top, #8eb2d8, #558bc4);background-image:-o-linear-gradient(top, #8eb2d8, #558bc4);background-image:linear-gradient(to bottom, #8eb2d8, #558bc4);background-repeat:repeat-x;filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff8eb2d8', endColorstr='#ff558bc4', GradientType=0);border-color:#558bc4 #558bc4 #356598;border-color:rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);*background-color:#558bc4;filter:progid:DXImageTransform.Microsoft.gradient(enabled = false);}.btn-primary:hover,.btn-primary:active,.btn-primary.active,.btn-primary.disabled,.btn-primary[disabled]{color:#ffffff;background-color:#558bc4;*background-color:#427ebd;}
+.btn-primary:active,.btn-primary.active{background-color:#558BC4 \9;}
