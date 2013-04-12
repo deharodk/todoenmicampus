@@ -606,6 +606,7 @@
     <Content Include="assets\img\glyphicons_397_rss.png" />
     <Content Include="assets\img\glyphicons_398_skype.png" />
     <Content Include="assets\img\glyphicons_399_e-mail.png" />
+    <Content Include="assets\js\ajaxhome.js" />
     <Content Include="assets\js\anuncio.js" />
     <Content Include="assets\js\bootstrap-wysihtml5.js" />
     <Content Include="assets\js\formapago.js" />
@@ -628,7 +629,9 @@
     <Content Include="assets\js\subnav.js" />
     <Content Include="assets\js\wysihtml5-0.3.0.js" />
     <Content Include="Global.asax" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
@@ -861,6 +864,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Home\Contacto.vbhtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Shared\_Anuncios.vbhtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

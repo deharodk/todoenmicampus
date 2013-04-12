@@ -5,6 +5,7 @@ Namespace libros
         Inherits System.Web.Mvc.Controller
 
         Private db As New libros_db
+        Const anunciosPorPagina As Integer = 6
 
         '
         ' GET: /Anuncios/
@@ -36,6 +37,7 @@ Namespace libros
             Dim anuncios = db.Anuncios.Include(Function(a) a.Contacto).Include(Function(a) a.TipoAnuncio).Include(Function(a) a.FormaPago).Where(Function(a) a.estatus = True And estatus.Contains(a.idTipoAnuncio)).OrderBy(Function(a) a.fechaCreacion)
             ViewBag.headerAnuncios = "Anuncios de conocimiento"
             ViewBag.isHome = False
+            ViewBag.Action = "/Anuncios/Conocimiento/"
             Return View("../Home/Index", anuncios.ToList())
         End Function
 
@@ -44,6 +46,7 @@ Namespace libros
             Dim anuncios = db.Anuncios.Include(Function(a) a.Contacto).Include(Function(a) a.TipoAnuncio).Include(Function(a) a.FormaPago).Where(Function(a) a.estatus = True And estatus.Contains(a.idTipoAnuncio)).OrderBy(Function(a) a.fechaCreacion)
             ViewBag.headerAnuncios = "Anuncios de libros/material académico"
             ViewBag.isHome = False
+            ViewBag.Action = "/Anuncios/LibrosMaterial/"
             Return View("../Home/Index", anuncios.ToList())
         End Function
 
@@ -52,6 +55,7 @@ Namespace libros
             Dim anuncios = db.Anuncios.Include(Function(a) a.Contacto).Include(Function(a) a.TipoAnuncio).Include(Function(a) a.FormaPago).Where(Function(a) a.estatus = True And estatus.Contains(a.idTipoAnuncio)).OrderBy(Function(a) a.fechaCreacion)
             ViewBag.headerAnuncios = "Anuncios de roomies/cuartos"
             ViewBag.isHome = False
+            ViewBag.Action = "/Anuncios/Cuartos/"
             Return View("../Home/Index", anuncios.ToList())
         End Function
 
@@ -60,6 +64,7 @@ Namespace libros
             Dim anuncios = db.Anuncios.Include(Function(a) a.Contacto).Include(Function(a) a.TipoAnuncio).Include(Function(a) a.FormaPago).Where(Function(a) a.estatus = True And estatus.Contains(a.idTipoAnuncio)).OrderBy(Function(a) a.fechaCreacion)
             ViewBag.headerAnuncios = "Anuncios de trabajo/prácticas"
             ViewBag.isHome = False
+            ViewBag.Action = "/Anuncios/Trabajo/"
             Return View("../Home/Index", anuncios.ToList())
         End Function
 
@@ -68,8 +73,17 @@ Namespace libros
             Dim anuncios = db.Anuncios.Include(Function(a) a.Contacto).Include(Function(a) a.TipoAnuncio).Include(Function(a) a.FormaPago).Where(Function(a) a.estatus = True And estatus.Contains(a.idTipoAnuncio)).OrderBy(Function(a) a.fechaCreacion)
             ViewBag.headerAnuncios = "Anuncios de equis cosa"
             ViewBag.isHome = False
+            ViewBag.Action = "/Anuncios/EquisCosa/"
             Return View("../Home/Index", anuncios.ToList())
         End Function
+
+        Private Function GetPaginatedProducts(ByVal page As Integer) As List(Of Anuncio)
+            Dim skipRecords As Integer = Page * anunciosPorPagina
+            Dim listOfProducts = db.Anuncios.Include(Function(a) a.Contacto).Include(Function(a) a.TipoAnuncio).Include(Function(a) a.FormaPago).Where(Function(a) a.estatus = True).OrderBy(Function(a) a.fechaCreacion).OrderByDescending(Function(a) a.idAnuncio)
+            Return listOfProducts.Skip(skipRecords).Take(anunciosPorPagina).ToList()
+        End Function
+
+
 
         '
         ' GET: /Anuncios/Categoria/5

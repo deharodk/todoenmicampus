@@ -1,66 +1,7 @@
 ﻿@ModelType IEnumerable(Of libros.Anuncio)
 @Imports HtmlAgilityPack
 
-@Code
-    ViewData("Title") = "Todo en mi campus"
-    Layout = "~/Views/Shared/_Layout.vbhtml"
-End Code
-
-<script type = "text/javascript">
-    var page = 0;
-    var _inCallback = false;
-
-    function loadProducts() {
-        if (page > -1 && !_inCallback) {
-            _inCallback = true;
-            page++;
-            $('div#loading').html('<p><img src="/assets/images/loading.gif"></p>');
-            $.get('@ViewBag.Action' + page, function (data) {
-                if (data != '') {
-                    $("#anuncios").append(data);
-                }
-                else {
-                    page = -1;
-                }
-
-                _inCallback = false;
-                $('div#loading').empty();
-            });
-        }
-    }
-
-    var dcList = true;
-
-    $(window).scroll(function () {
-        if ($(window).scrollTop() + 1 >= $(document).height() - $(window).height()) {
-            loadProducts();
-        }
-    });
-</script>
-
-
-<div class="row intro">
-    <div class = "floatRight">
-        <a href="https://twitter.com/todoenmicampus" class="twitter-follow-button" data-show-count="false">Síguenos</a>
-        <script>
-            !function (d, s, id) { var js, fjs = d.getElementsByTagName(s)[0]; if (!d.getElementById(id)) { js = d.createElement(s); js.id = id; js.src = "//platform.twitter.com/widgets.js"; fjs.parentNode.insertBefore(js, fjs); } } (document, "script", "twitter-wjs");
-        </script>
-
-        <iframe src="//www.facebook.com/plugins/like.php?href=@Server.UrlEncode("http://www.facebook.com/pages/Todo-en-mi-campus/517859971597768?ref=hl")&amp;send=false&amp;layout=button_count&amp;width=450&amp;show_faces=false&amp;font=arial&amp;colorscheme=light&amp;action=like&amp;height=21" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:109px; height:19.6px;" allowTransparency="true"></iframe>
-    </div>
-    <div class="span12 align-center">
-        @If ViewBag.isHome = True Then
-            @<h1>Encuentra, ofrece, comparte y crea comunidad.</h1>
-            @<h2>Conéctate con tu campus, <a href="/Home/ComoFunciona">¿Cómo funciona?</a></h2>
-        Else
-            @<h1>Encuentra, ofrece, comparte y crea comunidad.</h1>
-            @<h2>@ViewBag.headerAnuncios</h2>
-        End If
-    </div>
-</div>
-
-<div id = "anuncios">
-    <div class="row"> 
+<div class="row"> 
     @For Each item In Model
         Dim currentItem = item
         Dim srcImg As String
@@ -120,15 +61,4 @@ End Code
         i = 1
         srcImg = Nothing
      Next  
-    </div>
 </div>
-<center>
-    <div id = "loading">
-        
-    </div>
-</center>
-
-@*@Section Scripts
-    @Scripts.Render("~/assets/js/ajaxhome.js")
-End Section
-*@
