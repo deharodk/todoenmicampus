@@ -5,7 +5,7 @@ Namespace libros
         Inherits System.Web.Mvc.Controller
 
         Private db As New libros_db
-        Const anunciosPorPagina As Integer = 6
+        Dim anunciosPorPagina As Integer = CInt(ConfigurationManager.AppSettings("registrosPorPagina"))
 
         '
         ' GET: /Anuncios/
@@ -32,64 +32,90 @@ Namespace libros
             Return View(anuncios.ToList())
         End Function
 
-        Function Conocimiento() As ActionResult
+        Function Conocimiento(Optional ByVal id As Integer = Nothing) As ActionResult
             Dim estatus() As Integer = {1, 2}
-            Dim anuncios = db.Anuncios.Include(Function(a) a.Contacto).Include(Function(a) a.TipoAnuncio).Include(Function(a) a.FormaPago).Where(Function(a) a.estatus = True And estatus.Contains(a.idTipoAnuncio)).OrderBy(Function(a) a.fechaCreacion)
+            Dim anuncios = db.Anuncios.Include(Function(a) a.Contacto).Include(Function(a) a.TipoAnuncio).Include(Function(a) a.FormaPago).Where(Function(a) a.estatus = True And estatus.Contains(a.idTipoAnuncio)).OrderByDescending(Function(a) a.idAnuncio).Take(anunciosPorPagina)
             ViewBag.headerAnuncios = "Anuncios de conocimiento"
             ViewBag.isHome = False
             ViewBag.Action = "/Anuncios/Conocimiento/"
+
+            If (Request.IsAjaxRequest()) Then
+                Return PartialView("_Anuncios", GetPaginatedProducts(id, estatus))
+            End If
+
             Return View("../Home/Index", anuncios.ToList())
         End Function
 
-        Function LibrosMaterial() As ActionResult
+        Function LibrosMaterial(Optional ByVal id As Integer = Nothing) As ActionResult
             Dim estatus() As Integer = {3, 4}
-            Dim anuncios = db.Anuncios.Include(Function(a) a.Contacto).Include(Function(a) a.TipoAnuncio).Include(Function(a) a.FormaPago).Where(Function(a) a.estatus = True And estatus.Contains(a.idTipoAnuncio)).OrderBy(Function(a) a.fechaCreacion)
+            Dim anuncios = db.Anuncios.Include(Function(a) a.Contacto).Include(Function(a) a.TipoAnuncio).Include(Function(a) a.FormaPago).Where(Function(a) a.estatus = True And estatus.Contains(a.idTipoAnuncio)).OrderByDescending(Function(a) a.idAnuncio).Take(anunciosPorPagina)
             ViewBag.headerAnuncios = "Anuncios de libros/material académico"
             ViewBag.isHome = False
             ViewBag.Action = "/Anuncios/LibrosMaterial/"
+
+            If (Request.IsAjaxRequest()) Then
+                Return PartialView("_Anuncios", GetPaginatedProducts(id, estatus))
+            End If
+
             Return View("../Home/Index", anuncios.ToList())
         End Function
 
-        Function Cuartos() As ActionResult
+        Function Cuartos(Optional ByVal id As Integer = Nothing) As ActionResult
             Dim estatus() As Integer = {5, 6}
-            Dim anuncios = db.Anuncios.Include(Function(a) a.Contacto).Include(Function(a) a.TipoAnuncio).Include(Function(a) a.FormaPago).Where(Function(a) a.estatus = True And estatus.Contains(a.idTipoAnuncio)).OrderBy(Function(a) a.fechaCreacion)
+            Dim anuncios = db.Anuncios.Include(Function(a) a.Contacto).Include(Function(a) a.TipoAnuncio).Include(Function(a) a.FormaPago).Where(Function(a) a.estatus = True And estatus.Contains(a.idTipoAnuncio)).OrderByDescending(Function(a) a.idAnuncio).Take(anunciosPorPagina)
             ViewBag.headerAnuncios = "Anuncios de roomies/cuartos"
             ViewBag.isHome = False
             ViewBag.Action = "/Anuncios/Cuartos/"
+
+            If (Request.IsAjaxRequest()) Then
+                Return PartialView("_Anuncios", GetPaginatedProducts(id, estatus))
+            End If
+
             Return View("../Home/Index", anuncios.ToList())
         End Function
 
-        Function Trabajo() As ActionResult
+        Function Trabajo(Optional ByVal id As Integer = Nothing) As ActionResult
             Dim estatus() As Integer = {7, 8}
-            Dim anuncios = db.Anuncios.Include(Function(a) a.Contacto).Include(Function(a) a.TipoAnuncio).Include(Function(a) a.FormaPago).Where(Function(a) a.estatus = True And estatus.Contains(a.idTipoAnuncio)).OrderBy(Function(a) a.fechaCreacion)
+            Dim anuncios = db.Anuncios.Include(Function(a) a.Contacto).Include(Function(a) a.TipoAnuncio).Include(Function(a) a.FormaPago).Where(Function(a) a.estatus = True And estatus.Contains(a.idTipoAnuncio)).OrderByDescending(Function(a) a.idAnuncio).Take(anunciosPorPagina)
             ViewBag.headerAnuncios = "Anuncios de trabajo/prácticas"
             ViewBag.isHome = False
             ViewBag.Action = "/Anuncios/Trabajo/"
+
+            If (Request.IsAjaxRequest()) Then
+                Return PartialView("_Anuncios", GetPaginatedProducts(id, estatus))
+            End If
+
             Return View("../Home/Index", anuncios.ToList())
         End Function
 
-        Function EquisCosa() As ActionResult
+        Function EquisCosa(Optional ByVal id As Integer = Nothing) As ActionResult
             Dim estatus() As Integer = {9, 10}
-            Dim anuncios = db.Anuncios.Include(Function(a) a.Contacto).Include(Function(a) a.TipoAnuncio).Include(Function(a) a.FormaPago).Where(Function(a) a.estatus = True And estatus.Contains(a.idTipoAnuncio)).OrderBy(Function(a) a.fechaCreacion)
+            Dim anuncios = db.Anuncios.Include(Function(a) a.Contacto).Include(Function(a) a.TipoAnuncio).Include(Function(a) a.FormaPago).Where(Function(a) a.estatus = True And estatus.Contains(a.idTipoAnuncio)).OrderByDescending(Function(a) a.idAnuncio).Take(anunciosPorPagina)
             ViewBag.headerAnuncios = "Anuncios de equis cosa"
             ViewBag.isHome = False
             ViewBag.Action = "/Anuncios/EquisCosa/"
+
+            If (Request.IsAjaxRequest()) Then
+                Return PartialView("_Anuncios", GetPaginatedProducts(id, estatus))
+            End If
+
             Return View("../Home/Index", anuncios.ToList())
         End Function
 
-        Private Function GetPaginatedProducts(ByVal page As Integer) As List(Of Anuncio)
-            Dim skipRecords As Integer = Page * anunciosPorPagina
-            Dim listOfProducts = db.Anuncios.Include(Function(a) a.Contacto).Include(Function(a) a.TipoAnuncio).Include(Function(a) a.FormaPago).Where(Function(a) a.estatus = True).OrderBy(Function(a) a.fechaCreacion).OrderByDescending(Function(a) a.idAnuncio)
-            Return listOfProducts.Skip(skipRecords).Take(anunciosPorPagina).ToList()
+        Private Function GetPaginatedProducts(ByVal page As Integer, ByVal ids() As Integer) As List(Of Anuncio)
+            Dim skipRecords As Integer = page * anunciosPorPagina
+            Dim estatus() As Integer = ids
+            Dim anuncios = db.Anuncios.Include(Function(a) a.Contacto).Include(Function(a) a.TipoAnuncio).Include(Function(a) a.FormaPago).Where(Function(a) a.estatus = True And estatus.Contains(a.idTipoAnuncio)).OrderByDescending(Function(a) a.idAnuncio)
+
+            Return anuncios.Skip(skipRecords).Take(anunciosPorPagina).ToList()
         End Function
 
-
-
         '
-        ' GET: /Anuncios/Categoria/5
+        ' GET: /Anuncios/Categoria/5/1
 
-        Function Categoria(Optional ByVal id As Integer = Nothing) As ActionResult
-            Dim anuncios = db.Anuncios.Include(Function(a) a.Contacto).Include(Function(a) a.TipoAnuncio).Include(Function(a) a.FormaPago).Where(Function(a) a.estatus = True And a.idTipoAnuncio = id).OrderBy(Function(a) a.fechaCreacion).Take(100)
+        Function Categoria(Optional ByVal id As Integer = Nothing, Optional ByVal page As Integer = Nothing) As ActionResult
+            Dim estatus() As Integer = {id}
+            Dim anuncios = db.Anuncios.Include(Function(a) a.Contacto).Include(Function(a) a.TipoAnuncio).Include(Function(a) a.FormaPago).Where(Function(a) a.estatus = True And a.idTipoAnuncio = id).OrderByDescending(Function(a) a.idAnuncio).Take(anunciosPorPagina)
             If IsNothing(anuncios) Then
                 Return HttpNotFound()
             End If
@@ -108,8 +134,45 @@ Namespace libros
             End Select
 
             ViewBag.isHome = False
-            Return View("../Home/Index", anuncios.ToList())
+            ViewBag.Action = "/Anuncios/Categoria/" & CStr(id) & "/"
+
+            If (Request.IsAjaxRequest()) Then
+                Return PartialView("_Anuncios", GetPaginatedProducts(page, estatus))
+            End If
+
+            Return View(anuncios.ToList())
         End Function
+
+
+        '
+        ' GET: /Anuncios/Busqueda/coso/1
+        <HttpPost()>
+        Function Busqueda(Optional ByVal patern As String = Nothing, Optional ByVal page As Integer = Nothing) As ActionResult
+            Dim patron As String = Server.UrlDecode(patern)
+            Dim anuncios = db.Anuncios.Include(Function(a) a.Contacto).Include(Function(a) a.TipoAnuncio).Include(Function(a) a.FormaPago).Where(Function(a) a.estatus = True And a.titulo.Contains(patern)).OrderByDescending(Function(a) a.idAnuncio).Take(anunciosPorPagina)
+            If IsNothing(anuncios) Then
+                Return HttpNotFound()
+            End If
+
+            ViewBag.headerAnuncios = "Anuncios que contengan '" & patern & "' en su título"
+            ViewBag.isHome = False
+            ViewBag.Action = "/Anuncios/Busqueda"
+            ViewBag.Patern = Server.UrlEncode(patron)
+
+            If (Request.IsAjaxRequest()) Then
+                Return PartialView("_Anuncios", GetPaginatedProductsByPatern(page, patron))
+            End If
+
+            Return View(anuncios.ToList())
+        End Function
+
+        Private Function GetPaginatedProductsByPatern(ByVal page As Integer, ByVal patern As String) As List(Of Anuncio)
+            Dim skipRecords As Integer = page * anunciosPorPagina
+            Dim patron As String = Server.UrlDecode(patern)
+            Dim anuncios = db.Anuncios.Include(Function(a) a.Contacto).Include(Function(a) a.TipoAnuncio).Include(Function(a) a.FormaPago).Where(Function(a) a.estatus = True And a.titulo.Contains(patern)).OrderByDescending(Function(a) a.idAnuncio)
+            Return anuncios.Skip(skipRecords).Take(anunciosPorPagina).ToList()
+        End Function
+
 
         '
         ' GET: /Anuncios/Details/5

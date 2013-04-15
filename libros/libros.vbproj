@@ -606,7 +606,6 @@
     <Content Include="assets\img\glyphicons_397_rss.png" />
     <Content Include="assets\img\glyphicons_398_skype.png" />
     <Content Include="assets\img\glyphicons_399_e-mail.png" />
-    <Content Include="assets\js\ajaxhome.js" />
     <Content Include="assets\js\anuncio.js" />
     <Content Include="assets\js\bootstrap-wysihtml5.js" />
     <Content Include="assets\js\formapago.js" />
@@ -867,6 +866,12 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Shared\_Anuncios.vbhtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Anuncios\Busqueda.vbhtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Home\TiposAnuncio.vbhtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

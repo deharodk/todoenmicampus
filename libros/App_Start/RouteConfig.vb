@@ -16,11 +16,17 @@ Public Class RouteConfig
         )
 
 
-        'routes.MapRoute( _
-        '         "passRecoverChange",
-        '         "{controller}/{action}/{id}/{key}",
-        '         New With {.controller = "Usuario", .action = "assRecoverChange", .id = UrlParameter.Optional, .key = UrlParameter.Optional}
-        '         )
+        routes.MapRoute( _
+                 "passRecoverChange",
+                 "{controller}/{action}/{id}/{page}",
+                 New With {.controller = "Anuncios", .action = "Categoria", .id = UrlParameter.Optional, .page = UrlParameter.Optional}
+                 )
+
+        routes.MapRoute( _
+                 "buscarAnuncios",
+                 "{controller}/{action}/{patern}/{page}",
+                 New With {.controller = "Anuncios", .action = "Busqueda", .patern = UrlParameter.Optional, .page = UrlParameter.Optional}
+                 )
 
     End Sub
 End Class

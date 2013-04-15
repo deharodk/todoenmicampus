@@ -19,6 +19,8 @@
     @Scripts.Render("~/assets/js/analytics.js")
     @Scripts.Render("~/assets/js/wysihtml5-0.3.0.js")
     @Scripts.Render("~/assets/js/bootstrap-wysihtml5.js")
+    @Scripts.Render("~/assets/js/chosen.jquery.js")
+    @Styles.Render("~/assets/css/chosen.css")
 </head>
 <body>
     @Html.Partial("_menu")

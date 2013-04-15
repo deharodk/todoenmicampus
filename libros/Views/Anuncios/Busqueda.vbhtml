@@ -15,7 +15,7 @@ End Code
             _inCallback = true;
             page++;
             $('div#loading').html('<p><img src="/assets/images/loading.gif"></p>');
-            $.get('@ViewBag.Action' + page, function (data) {
+            $.post('@ViewBag.Action', "patern=" + '@ViewBag.Patern' + "&page="+ page, function (data) {
                 if (data != '') {
                     $("#anuncios").append(data);
                 }

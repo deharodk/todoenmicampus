@@ -19,7 +19,7 @@ End code
 
  <div class="navbar navbar-fixed-top navbar-inverse">
       <div class="navbar-inner">
-        <div id = "menu_container_nav">
+        <div class = "container menuF">
           <button type="button" data-toggle="collapse" data-target=".nav-collapse" class="btn btn-navbar">
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
@@ -34,13 +34,13 @@ End code
              <li class = "menuItem"><a href="/Anuncios/Conocimiento">Conocimiento</a></li>
              <li class="divider-vertical menuItem"></li>
 
-             <li class = "menuItem"><a href="/Anuncios/LibrosMaterial">Libros/Material académico</a></li>
+             <li class = "menuItem"><a href="/Anuncios/LibrosMaterial">Libros/Material</a></li>
              <li class="divider-vertical menuItem"></li>
 
              <li class = "menuItem"><a href = "/Anuncios/Cuartos">Roomies</a></li>
              <li class="divider-vertical menuItem"></li>
 
-             <li class = "menuItem"><a href="/Anuncios/Trabajo">Trabajo/prácticas</a></li>
+             <li class = "menuItem"><a href="/Anuncios/Trabajo">Trabajo</a></li>
              <li class="divider-vertical menuItem"></li>
 
              <li class = "menuItem"><a href = "/Anuncios/EquisCosa">Equis cosa</a></li>
@@ -51,13 +51,22 @@ End code
             </ul>
       </div>
 
+            <div class="navbar-search pull-left">
+            @Using Html.BeginForm("Busqueda", "Anuncios", Nothing, FormMethod.Post)
+            @<div class="input-append">
+              <input type="text" class="span2" name = "patern" id = "patern" placeholder = "¿Qué buscas?"/>
+              <button class="btn">Buscar</button>
+            </div>
+           end using
+          </div>
+
           <div class="nav-collapse collapse">
             @If conectado = True Then
             @<ul class="pull-right nav">
               <li class="divider-vertical menuItem"></li>
               <li class="dropdown menuItem">
                   <a href ='javascript:void(0);' class="dropdown-toggle" data-toggle="dropdown">
-                     <i class="icon-user"></i> @email
+                     <i class="icon-user icon-white"></i> @email
                     <b class="caret vam"></b>
                   </a>
                   <ul class="dropdown-menu">
@@ -73,7 +82,7 @@ End code
               <li class="divider-vertical menuItem"></li>
               <li class="dropdown menuItem">
               <a href ='/Usuario/login' class="dropdown-toggle" data-toggle="dropdown">
-                <i class="icon-off"></i> Conectarme
+                <i class="icon-off icon-white"></i> Conectarme
               </a>
               </li>
             </ul>

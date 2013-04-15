@@ -17,6 +17,7 @@ End Code
             <div class="controls">
                 @Html.DropDownList("idTipoAnuncio", "[Seleccionar]")
                 @Html.ValidationMessageFor(Function(model) model.idTipoAnuncio)
+                <a title = "¿Qué significa cada tipo de anuncio?" target = "_blank" href = "/Home/TiposAnuncio"><i class="icon-question-sign"></i></a>
             </div>
         </div>
 

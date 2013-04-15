@@ -4,7 +4,7 @@ Namespace libros
         Inherits System.Web.Mvc.Controller
 
         Private db As New libros_db
-        Const anunciosPorPagina As Integer = 3
+        Dim anunciosPorPagina As Integer = CInt(ConfigurationManager.AppSettings("registrosPorPagina"))
 
         '
         ' GET: /Home
@@ -23,8 +23,8 @@ Namespace libros
 
         Private Function GetPaginatedProducts(ByVal page As Integer) As List(Of Anuncio)
             Dim skipRecords As Integer = Page * anunciosPorPagina
-            Dim listOfProducts = db.Anuncios.Include(Function(a) a.Contacto).Include(Function(a) a.TipoAnuncio).Include(Function(a) a.FormaPago).Where(Function(a) a.estatus = True).OrderBy(Function(a) a.fechaCreacion).OrderByDescending(Function(a) a.idAnuncio)
-            Return listOfProducts.Skip(skipRecords).Take(anunciosPorPagina).ToList()
+            Dim anuncios = db.Anuncios.Include(Function(a) a.Contacto).Include(Function(a) a.TipoAnuncio).Include(Function(a) a.FormaPago).Where(Function(a) a.estatus = True).OrderBy(Function(a) a.fechaCreacion).OrderByDescending(Function(a) a.idAnuncio)
+            Return anuncios.Skip(skipRecords).Take(anunciosPorPagina).ToList()
         End Function
 
         Function QuienesSomos() As ActionResult
@@ -62,5 +62,11 @@ Namespace libros
         Function ComoFunciona() As ActionResult
             Return View()
         End Function
+
+        Function TiposAnuncio() As ActionResult
+            Dim tipoanuncio = db.TipoAnuncios.ToList()
+            Return View(tipoanuncio)
+        End Function
+
     End Class
 End Namespace

@@ -14,4 +14,6 @@ Public Class TipoAnuncio
     <Required()>
     <DisplayName("Estatus")>
     Public Property estatus As Boolean
+    <DisplayName("Descripción")>
+    Public Property descripcion As String
 End Class

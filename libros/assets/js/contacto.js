@@ -1,5 +1,7 @@
 ﻿$(document).ready(function () {
 
+    $("#idFacultad").chosen({});
+
     $('#tblUsuarios').dataTable({
         "sPaginationType": "full_numbers"
     });

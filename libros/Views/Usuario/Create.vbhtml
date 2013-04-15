@@ -55,7 +55,7 @@ End Code
         </div>
 
          <div class="control-group">
-            @Html.LabelFor(Function(model) model.idFacultad, New With {.class = "control-label"})
+            @Html.LabelFor(Function(model) model.idFacultad, New With {.class = "control-label", .data_placeholder = "Tu facultad"})
             <div class="controls">
                 @Html.DropDownList("idFacultad", "[Seleccionar]")
                 @Html.ValidationMessageFor(Function(model) model.idFacultad)
