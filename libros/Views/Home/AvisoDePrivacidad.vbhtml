@@ -28,7 +28,14 @@ Su información personal será utilizada para las siguientes finalidades: provee
 <br />
 
 <p>
-    Es importante informarle que usted tiene derecho al acceso, rectificación y cancelación de sus datos personales, a oponerse al tratamiento de los mismos o a revocar el consentimiento que para dicho fin nos haya otorgado. Para ello, es necesario que envíe la solicitud en los términos que marca la Ley en su Art. 29 a JOSÉ LUIS DE HARO HERNÁNDEZ, responsable de nuestro Departamento de protección de datos personales, ubicado en Andrómeda 22, Col. bob esponja, fondo de bikini, en el fondo del oceano, o bien, se comunique al teléfono 12 34 22 33 55 o vía correo electrónico a luis.deharo@todoenmicampus.com , el cual solicitamos confirme vía telefónica para garantizar su correcta recepción. En caso de que no desee recibir mensajes promocionales de nuestra parte, puede enviarnos su solicitud por medio de la dirección electrónica: luis.deharo@todoenmicampus.com
+   Es importante informarle que usted tiene derecho al acceso, rectificación y cancelación de sus datos personales, 
+a oponerse al tratamiento de los mismos o a revocar el consentimiento que para dicho fin nos haya otorgado. 
+Para ello, es necesario que envíe la solicitud en los términos que marca la Ley en su Art. 29 a el 
+responsable de nuestro Departamento de protección de datos personales, vía correo electrónico 
+a datospersonales@todoenmicampus.com a la brevedad.
+En caso de que no desee recibir mensajes promocionales de nuestra parte, puede enviarnos su solicitud por medio de la 
+dirección electrónica: datospersonales@todoenmicampus.com
+
 </p>
 
 

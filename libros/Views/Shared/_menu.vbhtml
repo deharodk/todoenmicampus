@@ -25,7 +25,7 @@ End code
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
           </button>
-          <a href="/Home/" class="brand">TEMC</a>
+          <a href="/Home/" class="brand"><img title = "Todo en mi campus" src ="../../assets/images/logo2.png" class = "logoImg" />&nbsp;&nbsp;&nbsp;Temc.</a>
 
       <div class="nav-collapse collapse">
             <ul class="pull-left nav">
@@ -54,8 +54,8 @@ End code
             <div class="navbar-search pull-left">
             @Using Html.BeginForm("Busqueda", "Anuncios", Nothing, FormMethod.Post)
             @<div class="input-append">
-              <input type="text" class="span2" name = "patern" id = "patern" placeholder = "¿Qué buscas?"/>
-              <button class="btn">Buscar</button>
+              <input type="text" name = "patern" id = "patern" placeholder = "¿Qué buscas?"/>
+              <button class="btn"><i class="icon-search"></i></button>
             </div>
            end using
           </div>

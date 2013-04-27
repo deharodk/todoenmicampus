@@ -58,7 +58,7 @@ Namespace libros
         ' GET: /Usuario/Create
 
         Function Create() As ActionResult
-            ViewBag.idFacultad = New SelectList(db.Facultad.Where(Function(a) a.estatus = True), "idFacultad", "nombreCorto")
+            ViewBag.idFacultad = New SelectList(db.Facultad.Where(Function(a) a.estatus = True).OrderBy(Function(a) a.nombreCorto), "idFacultad", "nombreCorto")
             Return View()
         End Function
 
@@ -107,7 +107,7 @@ Namespace libros
             If IsNothing(contacto) Then
                 Return HttpNotFound()
             End If
-            ViewBag.idFacultad = New SelectList(db.Facultad.Where(Function(a) a.estatus = True), "idFacultad", "nombreCorto", contacto.idFacultad)
+            ViewBag.idFacultad = New SelectList(db.Facultad.Where(Function(a) a.estatus = True).OrderBy(Function(a) a.nombreCorto), "idFacultad", "nombreCorto", contacto.idFacultad)
             Return View(contacto)
         End Function
 

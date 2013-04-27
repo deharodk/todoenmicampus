@@ -3,6 +3,7 @@
 <head>
     <title>@ViewBag.Title</title>
     <link href="http://fonts.googleapis.com/css?family=Sintony:400,700|Rambla" rel="stylesheet" type="text/css" />
+    <link rel="icon" type="image/png" href="../../assets/images/favicon.png" />
     @Styles.Render("~/assets/css/bootstrap.css")
     @Styles.Render("~/assets/css/main.css")
     @Styles.Render("~/assets/css/dataTables.css")
