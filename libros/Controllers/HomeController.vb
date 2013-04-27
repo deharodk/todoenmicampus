@@ -68,5 +68,13 @@ Namespace libros
             Return View(tipoanuncio)
         End Function
 
+        Function error404() As ActionResult
+            Return View()
+        End Function
+
+        Function error500() As ActionResult
+            Return View()
+        End Function
+
     End Class
 End Namespace
