@@ -31,20 +31,32 @@ End code
             <ul class="pull-left nav">
              <li class="divider-vertical menuItem"></li>
 
-             <li class = "menuItem"><a href="/Anuncios/Conocimiento">Conocimiento</a></li>
+             <li class="dropdown menuItem">
+                  <a href ='javascript:void(0);' class="dropdown-toggle" data-toggle="dropdown">
+                     Anuncios de
+                    <b class="caret vam"></b>
+                  </a>
+                  <ul class="dropdown-menu">
+                    <li><a href="/Anuncios/Conocimiento">Conocimiento</a></li>
+                     <li><a href="/Anuncios/LibrosMaterial">Libros/Material académico</a></li>
+                     <li><a href = "/Anuncios/Cuartos">Roomies</a></li>
+                     <li><a href="/Anuncios/Trabajo">Trabajo/Prácticas</a></li>
+                     <li><a href = "/Anuncios/EquisCosa">Equis cosa</a></li>
+                  </ul>
+             </li>
+
+             
              <li class="divider-vertical menuItem"></li>
 
-             <li class = "menuItem"><a href="/Anuncios/LibrosMaterial">Libros/Material</a></li>
-             <li class="divider-vertical menuItem"></li>
 
-             <li class = "menuItem"><a href = "/Anuncios/Cuartos">Roomies</a></li>
-             <li class="divider-vertical menuItem"></li>
 
-             <li class = "menuItem"><a href="/Anuncios/Trabajo">Trabajo</a></li>
-             <li class="divider-vertical menuItem"></li>
+             
 
-             <li class = "menuItem"><a href = "/Anuncios/EquisCosa">Equis cosa</a></li>
-             <li class="divider-vertical menuItem"></li>
+
+
+
+
+
 
              <li class = "menuItem"><a href="/Anuncios/Create">¡Publicar anuncio!</a></li>
              <li class="divider-vertical menuItem"></li>

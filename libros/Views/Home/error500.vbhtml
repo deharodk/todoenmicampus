@@ -6,10 +6,10 @@ End Code
 <h1>¡Rayos!</h1>
 
 <p>Desafortunadamente ocurrió un error que no podemos controlar al intentar realizar lo que nos pediste.
-Te pedimos por favor, nos hagas saber sobre ésto escribiéndonos a <a href = "mailto:bugs@todoenmicampus.com">bugs@todoenmicampus.com</a>
+Te pedimos por favor, nos hagas saber sobre ésto escribiéndonos a <a href = "mailto:bugs@todoenmicampus.com" target = "_blank">bugs@todoenmicampus.com</a>
 
  .Haz click 
-<a alt = "Volver al inicio" href = "/Home/Index">aquí</a> para volver al inicio.
+<a href = "/Home/Index" >aquí</a> para volver al inicio.
 
 </p>
 

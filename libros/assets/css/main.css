@@ -11,7 +11,7 @@ h2{color:#777;text-shadow:1px 1px 0 #fff;font-family:Sintony;font-weight:400;fon
 .align-center{text-align:center}
 .align-right{text-align:right}
 .readmore{font-size:1.2em;line-height:60px}
-.brand{width:63px;height:26px;overflow:hidden;color:#fff !important;line-height:40px;font-family:Rambla !important;font-weight:bold !important;font-size:1.4em;text-shadow:1px 0 #4a9fc3,0 1px #4a9fc3,1px 0 #4a9fc3,0 -1px #4a9fc3,2px 2px 6px rgba(0,0,0,0.2) !important}
+.brand{width:97px;height:26px;overflow:hidden;color:#fff !important;line-height:40px;font-family:Rambla !important;font-weight:bold !important;font-size:1.4em;text-shadow:1px 0 #4a9fc3,0 1px #4a9fc3,1px 0 #4a9fc3,0 -1px #4a9fc3,2px 2px 6px rgba(0,0,0,0.2) !important}
 .navbar-inverse{height:60px;}
 .navbar-inverse .navbar-inner{background:#7dbad4;background:-webkit-gradient(linear, left top, left bottom, color-stop(0, #7dbad4), color-stop(1, #8ac1d8));background:-webkit-linear-gradient(top, #7dbad4 0%, #8ac1d8 100%);background:-moz-linear-gradient(top, #7dbad4 0%, #8ac1d8 100%);background:-o-linear-gradient(top, #7dbad4 0%, #8ac1d8 100%);background:-ms-linear-gradient(top, #7dbad4 0%, #8ac1d8 100%);background:linear-gradient(top, #7dbad4 0%, #8ac1d8 100%);height:60px;border-color:#64adcc}
 .navbar-inverse .divider-vertical{border-left-color:#64adcc;border-right-color:#97c8dd}
@@ -49,6 +49,8 @@ h2{color:#777;text-shadow:1px 1px 0 #fff;font-family:Sintony;font-weight:400;fon
 .btn-primary{color:#ffffff;text-shadow:0 -1px 0 rgba(0, 0, 0, 0.25);background-color:#77a2d0;background-image:-moz-linear-gradient(top, #8eb2d8, #558bc4);background-image:-webkit-gradient(linear, 0 0, 0 100%, from(#8eb2d8), to(#558bc4));background-image:-webkit-linear-gradient(top, #8eb2d8, #558bc4);background-image:-o-linear-gradient(top, #8eb2d8, #558bc4);background-image:linear-gradient(to bottom, #8eb2d8, #558bc4);background-repeat:repeat-x;filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff8eb2d8', endColorstr='#ff558bc4', GradientType=0);border-color:#558bc4 #558bc4 #356598;border-color:rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);*background-color:#558bc4;filter:progid:DXImageTransform.Microsoft.gradient(enabled = false);}.btn-primary:hover,.btn-primary:active,.btn-primary.active,.btn-primary.disabled,.btn-primary[disabled]{color:#ffffff;background-color:#558bc4;*background-color:#427ebd;}
 .btn-primary:active,.btn-primary.active{background-color:#558BC4 \9;}
 .marginBottom{margin-bottom: 10px}
+/*
 .menuFix{min-width: 960px;}
 .menuF{min-width: 1200px !important; width: 95% !important;}
-.logoImg{height: 35px !important; position:absolute; top: 15px; left: 5px; width: 28px;}
+*/
+.logoImg{height: 35px !important; width: 28px;}
