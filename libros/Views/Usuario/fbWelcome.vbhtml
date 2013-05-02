@@ -16,7 +16,7 @@ o no quieres accesar mediante facebook. </p>
 
 
 
-<p> <b>Usuario:</b> El correo que usas para coenctarte en facebook </p>
+<p> <b>Usuario:</b> El correo que usas para conectarte en facebook </p>
 <p> <b>Password:</b> @ViewBag.pass </p>
 
 
@@ -26,7 +26,8 @@ o no quieres accesar mediante facebook. </p>
 
 <p>Para continuar a todo en mi campus, da click <a href = "@ViewBag.urlTo">aquí</a> </p>
 
-
+<!--
 <center>
     <img alt = "welcome" src = "../../assets/images/welcome_fb.png"  width = "400px" height = "400px" />
 </center>
+-->

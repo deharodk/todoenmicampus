@@ -36,7 +36,7 @@ window.fbAsyncInit = function () {
                                         }
                                         else {
                                             if (data[1] == true) {
-                                                location.href = '/usuario/fbWelcome/?user=' + encodeURI(data[4]) + '&urlTo=' + encodeURI(data[3]);
+                                                location.href = '/usuario/fbWelcome/?pass=' + encodeURI(data[5]) + '&urlTo=' + encodeURI(data[3]);
                                             }
                                             else {
                                                 location.href = '/' + data[3];

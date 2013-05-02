@@ -1,6 +1,6 @@
 ﻿$(document).ready(function () {
 
-    $("#idFacultad").chosen({});
+    $("select#idFacultad").chosen({});
 
     $('#tblUsuarios').dataTable({
         "sPaginationType": "full_numbers"
