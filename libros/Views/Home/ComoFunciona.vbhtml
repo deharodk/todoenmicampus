@@ -1,5 +1,5 @@
 ﻿@Code
-    ViewData("Title") = "ComoFunciona"
+    ViewData("Title") = "¿Cómo funciona? - todoenmicampus"
     Layout = "~/Views/Shared/_Layout.vbhtml"
 End Code
 <br />
@@ -15,40 +15,16 @@ End Code
 
 <h1>¿Cómo funciona?</h1>
 
-<div class="row-fluid">
-    <div class="span4">
-        <h2>Encuentra</h2>
-        <p>
-            En todo en mi campus, puedes encontrar lo que necesitas, desde alguien que venda algún libro que ocupas, 
-            alguien que dé asesorías en alguna materia que te vaya del nabo, alguien que rente o comparta un cuarto para ti, alguien que
-            ofezca la chamba que estás esperando o alguien que venda o compre equis cosa.
-            Todo esto es entre tu misma comunidad universitaria, cerca de ti.
-        </p>
-    </div>
+<center>
+    <iframe class="youtube-player" type="text/html" width="640" height="385" src="http://www.youtube.com/embed/ERT0pVYmwRk" frameborder="0"></iframe>
+        
+    <br />
 
-    <div class="span4">
-        <h2>Ofrece/Comparte</h2>
-        <p>
-             ¿Tienes libros o equis cosa que ya no uses y desees vender? 
-             ¿Andas buscando chamba o prácticas?
-             ¿Eres bueno para alguna materia y piensas que puedes compartir tu conocimiento y ganar algo de dinero con eso?
-             ¿Rentas o compartes cuarto pero no has encontrado roomie?
-             <br />
-             ¡En todo en mi campus te podemos ayudar!
-        </p>
- 
-    </div>
 
-    <div class="span4">
-        <h2>Crea comunidad</h2>
-        <p>
-            En todo en mi campus estamos seguros que vas a poder contactar personas que coincidan
-            con tus intereses. Te sorprenderemos de aquí
-            en adelante porque vamos a conectar cada vez más tu universidad contigo. ¡Gracias por tu apoyo!
-        </p>
+    <p>
 
-        <p>
-            <a class="btn pull-right" href="/Anuncios/Create">¡Comenzar ahora! <i class = "icon-play-circle"></i></a>
-        </p>
-    </div>
-</div>
+      <a class="btn" href="/Anuncios/Create">¡Comenzar ahora! <i class = "icon-play-circle"></i></a>
+
+    </p>
+
+</center>
